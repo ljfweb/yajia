@@ -1,0 +1,41 @@
+* {
+	padding: 0;
+}
+
+#gab,
+#top,
+{
+	margin: 0 auto;
+	position: relative;
+}
+
+
+/*---------------------------top---------------------------------*/
+
+
+/*----------------------------main----------------------------------*/
+
+.user_account {
+	position: absolute;
+	margin: 75px;
+	width: 250px;
+	height: 30px;
+	border: solid 1px #999999;
+}
+.user_password {
+	position: absolute;
+	margin-left: 75px;
+	margin-top:150px ;
+	width: 250px;
+	height: 30px;
+	border: solid 1px #999999;
+}
+.logi:hover{
+	background-position:red ;
+}
+.fal{}
+/*-----------------------------last------------------------------*/
+.list{width:1200px;margin-left:200px; }
+.list li{float:left;margin-left: 5px;}
+.list p{float:left;}
+.pic li{float:left;margin-left:10px;}

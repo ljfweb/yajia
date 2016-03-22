@@ -1,0 +1,344 @@
+.header-wrap{width: 1229px; height: 100px;}
+.head-con{width: 1200px; height: 100px;}
+.head-con .logo{float: left; height: 60px; margin: 15px 10px auto 0;width:240px;}
+.head-con .search-bar{position: relative; }
+.head-con .search-bar{float: left; overflow: hidden; padding-top: 28px; width: 630px;  margin-left: 67px;}
+#search ul.tab{display: block; height: 23px; left: 0; overflow:hidden; position: absolute; top:8px; width: 200px; z-index: 99; }
+#search ul.tab li {color: #555;cursor: pointer;float: left;font-weight: bold;height: 20px;line-height: 20px;margin-right: 8px;padding: 0 14px 3px;white-space: nowrap; }
+#search ul.tab .current:hover {background: #d93600 none repeat scroll 0 0;}
+#search ul.tab li.current {background: #d93600 none repeat scroll 0 0;color: #fff;float: left; height: 20px;line-height: 22px;margin: 0;padding: 0 14px 3px;}
+.search-bar .search-form {background-color: #d93600;height: 36px;padding: 3px;}
+.search-bar .input-text {border: 0 none;color: #555;float: left;height: 24px;line-height: 24px;padding: 6px 1%;width: 82%;}
+.search-bar .input-submit, .search-bar .input-submit:hover {background-color: transparent;border: medium none;color: #fff;cursor: pointer;float: right;font-size: 16px;font-weight: 600;height: 40px;width: 15%;}
+.search-bar .keyword {color: #999;height: 20px;line-height: 20px;margin-top: 4px;overflow: hidden;white-space: nowrap;width: 500px;}
+.search-bar .keyword ul {display: inline-block;font-size: 0;vertical-align: top;}
+.search-bar .keyword ul li {display: inline-block;font-size: 12px;letter-spacing: normal;margin-right: 12px;vertical-align: top;word-spacing: normal;}
+
+
+
+
+
+
+/*---------------------------------------------我的商城购物车结算----------------------------------------------------*/
+.head-user-menu {
+    float: right;
+    font-size: 0;
+    margin: 29px 0 0;
+}
+.head-user-menu dl {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: normal;
+    margin-left: 10px;
+    position: relative;
+    vertical-align: top;
+    word-spacing: normal;
+    z-index: 3;
+}
+.head-user-menu dl.my-mall {
+    width: 108px;
+}
+.head-user-menu dl.my-cart {
+    width: 124px;
+}
+.head-user-menu dl:hover {
+    z-index: 101;
+}
+.head-user-menu dl dt {
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    color: #555;
+    cursor: pointer;
+    height: 20px;
+    line-height: 20px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+.head-user-menu dl.my-mall dt {
+    width: 90px;
+}
+.head-user-menu dl.my-cart dt {
+    width: 106px;
+}
+.head-user-menu dl:hover dt {
+    background-color: #fff;
+    border-color: #f0f0f0 #f0f0f0 #fff;
+    border-width: 1px;
+}
+.head-user-menu dl dt span.ico {
+    background: rgba(0, 0, 0, 0) url(../img/top_bg.png) no-repeat scroll 0 0;
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 20px;
+}
+.head-user-menu dl.my-mall span.ico {
+    background-position: -100px 0;
+    margin-right: 4px;
+}
+.head-user-menu dl.my-cart span.ico {
+    background-position: -120px 0;
+    margin-right: 8px;
+}
+.head-user-menu dl dt i {
+    border-color: #777 transparent transparent;
+    border-style: solid dashed dashed;
+    border-width: 4px;
+    display: inline-block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    margin-left: 8px;
+    transition: all 0.2s ease-in 0s;
+    vertical-align: middle;
+    width: 0;
+}
+.head-user-menu dl:hover dt i {
+    transform: rotate(180deg);
+    transform-origin: 50% 30% 0;
+}
+.head-user-menu dl dd {
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    z-index: 1;
+}
+.head-user-menu dl.my-mall dd {
+    width: 308px;
+}
+.head-user-menu dl.my-cart dd {
+    width: 348px;
+}
+.head-user-menu dl:hover dd {
+    display: block;
+}
+.head-user-menu dl dd a {
+    color: #005ea6;
+}
+.head-user-menu a.arrow i {
+    background: rgba(0, 0, 0, 0) url(../img/top_bg.png) no-repeat scroll -150px 0;
+    display: inline-block;
+    height: 7px;
+    margin-left: 4px;
+    vertical-align: middle;
+    width: 4px;
+}
+.head-user-menu dl dd .goods-thumb {
+    height: 50px;
+    width: 50px;
+}
+.head-user-menu dl dd .goods-thumb a {
+    border: 1px solid #ddd;
+    display: table-cell;
+    height: 48px;
+    line-height: 0;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    width: 48px;
+}
+.head-user-menu dl dd .goods-thumb img {
+    max-height: 48px;
+    max-width: 48px;
+}
+.head-user-menu dl dd .sub-title {
+    border-bottom: 1px solid #ddd;
+    height: 28px;
+    line-height: 28px;
+    padding: 7px;
+}
+.head-user-menu dl dd .sub-title h4 {
+    float: left;
+    font-weight: 600;
+}
+.head-user-menu dl dd .sub-title a {
+    float: right;
+}
+.head-user-menu dl dd .user-centent-menu {
+    overflow: hidden;
+    padding: 8px 0;
+    width: 308px;
+}
+.head-user-menu dl dd .user-centent-menu ul {
+    margin-left: -2px;
+    width: 310px;
+}
+.head-user-menu dl dd .user-centent-menu ul li {
+    border-left: 1px solid #eee;
+    float: left;
+    padding: 4px 0 4px 16px;
+    width: 138px;
+}
+.head-user-menu dl dd .browse-history {
+    background-color: #fafafa;
+    border-color: #ddd transparent transparent;
+    border-style: solid;
+    border-width: 1px 0 0;
+    width: 308px;
+}
+.head-user-menu dl dd .browse-history .part-title {
+    height: 20px;
+    padding: 6px 8px;
+}
+.head-user-menu dl dd .browse-history .part-title h4 {
+    float: left;
+}
+.head-user-menu dl dd .browse-history .part-title a {
+    float: right;
+}
+.head-user-menu dl dd .browse-history ul {
+    font-size: 0;
+    padding: 0 7px 7px;
+}
+.head-user-menu dl dd .browse-history ul li {
+    display: inline-block;
+    letter-spacing: normal;
+    margin: 0 4px;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.head-user-menu dl dd .browse-history .no-goods {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+.head-user-menu dl dd .incart-goods-box {
+    display: block;
+    max-height: 267px;
+    overflow: hidden;
+    position: relative;
+    width: 348px;
+}
+.head-user-menu dl dd .incart-goods {
+    text-align: center;
+    width: 100%;
+}
+.head-user-menu dl dd .incart-goods .no-order {
+    margin: 20px 0;
+}
+.head-user-menu dl dd .incart-goods .loading {
+    height: 16px;
+    margin: 20px auto;
+    width: 16px;
+}
+.head-user-menu dl dd .incart-goods dl {
+    border-bottom: 1px dotted #ddd;
+    clear: both;
+    display: block;
+    height: 66px;
+    margin: 0 auto 0 2%;
+    position: relative;
+    width: 98%;
+    z-index: 1;
+}
+.head-user-menu dl dd .incart-goods dt, .head-user-menu dl dd .incart-goods dd {
+    background-color: transparent;
+    border: 0 none;
+    position: absolute;
+    z-index: 1;
+}
+.head-user-menu dl dd .incart-goods dt.goods-name {
+    background-color: transparent;
+    height: 32px;
+    left: 64px;
+    line-height: 16px;
+    padding: 0;
+    text-align: left;
+    top: 8px;
+    width: 180px;
+}
+.head-user-menu dl dd .incart-goods dt.goods-name a {
+    color: #333;
+}
+.head-user-menu dl dd .incart-goods dd.goods-thumb {
+    left: 8px;
+    top: 8px;
+}
+.head-user-menu dl dd .incart-goods dd.goods-price {
+    height: 16px;
+    right: 12px;
+    text-align: right;
+    top: 6px;
+    width: 80px;
+}
+.head-user-menu dl dd .incart-goods dd.goods-price em {
+    color: #777 !important;
+    font-size: 11px !important;
+    font-weight: normal !important;
+    line-height: 16px;
+    margin-right: 4px;
+    overflow: hidden;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 50px;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.head-user-menu dl dd .incart-goods dd.goods-sales {
+    background-color: transparent;
+    color: #999;
+    height: 16px;
+    left: 64px;
+    line-height: 16px;
+    top: 42px;
+    width: 270px;
+}
+.head-user-menu dl dd .incart-goods dd.handle {
+    right: 10px;
+    top: 22px;
+    width: 32px;
+}
+.head-user-menu dl dd .checkout {
+    background-color: #f0f0f0;
+    overflow: hidden;
+    padding: 8px;
+    text-align: right;
+}
+.head-user-menu dl dd .checkout .total-price {
+    display: block;
+    line-height: 20px;
+}
+.head-user-menu dl dd .checkout .total-price i {
+    color: #c00;
+    font-weight: 600;
+    margin: 0 4px;
+}
+.head-user-menu dl dd .checkout .total-price em {
+    color: #c00;
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+.head-user-menu dl dd .checkout .btn-cart {
+    background-color: #d93600;
+    border-radius: 4px;
+    clear: both;
+    color: #fff;
+    float: right;
+    line-height: 20px;
+    margin-top: 4px;
+    padding: 4px 8px;
+}
+.head-user-menu dl div.addcart-goods-num {
+    background: #f00 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    display: inline-block;
+    font: bold 11px/14px Verdana;
+    height: 16px;
+    left: 20px;
+    min-width: 16px;
+    position: absolute;
+    text-align: center;
+    top: -4px;
+    z-index: 3;
+}

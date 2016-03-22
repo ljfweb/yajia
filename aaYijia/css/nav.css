@@ -1,0 +1,364 @@
+.public-nav-layout{width: 1229px; height: 38px; border-bottom: 2px solid #f32613;
+           margin: 0  auto;
+           z-index: 99;
+           position: relative;}
+.public-nav-layout .wrapper{margin: 0; padding: 0;}
+.public-nav-layout .site-menu{
+	float: left;
+    font-size: 0;
+    max-width: 988px;
+    overflow: hidden;
+    white-space: nowrap;
+}   
+.public-nav-layout .site-menu li {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.public-nav-layout .site-menu li a {
+    color: #333;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    height: 20px;
+    line-height: 20px;
+    padding: 8px 24px;
+}
+.public-nav-layout .site-menu li a:hover {
+    color: #f32613;
+    text-decoration: none;
+}
+.public-nav-layout .site-menu li a.current {
+    color: #f32613;
+    font-weight: 600;
+}
+.public-nav-layout .all-category {
+    background-color: #f32613;
+    display: block;
+    float: left;
+    height: 36px;
+    width: 212px;
+}
+.public-nav-layout .all-category .title {
+    height: 20px;
+    line-height: 20px;
+    padding: 8px 10px 10px;
+}
+.public-nav-layout .all-category .title h3 a {
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 7px;
+}
+.public-nav-layout .all-category .title i {
+    background: rgba(0, 0, 0, 0) url("../img/Icon-CF.png") no-repeat;
+    float: left;
+    font-size: 0;
+    height: 22px;
+    line-height: 0;
+    width: 23px;
+}
+/*让主菜单一直显示*/
+.public-nav-layout .all-category .category {
+    display: block;
+    width: 212px;
+}
+.public-nav-layout .all-category:hover .category {
+    display: block;
+}
+.public-nav-layout .category .menu {
+    background-color: #b01d1d;
+    border-top: 1px solid #a01111;
+    padding-top: 2px;
+    height:478px
+}
+.public-nav-layout .category .menu li {
+    height: 34px;
+    position: relative;
+    width: 212px;
+    z-index: 1;
+}
+.public-nav-layout .category .menu li:hover {
+    z-index: 2;
+}
+.public-nav-layout .category .menu li:last-child {
+    height: 35px;
+}
+.public-nav-layout .category .class {
+    display: block;
+    height: 16px;
+    left: 0;
+    padding: 9px 15px;
+    position: absolute;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    width: 183px;
+    z-index: 1;
+}
+.public-nav-layout .category .hover .class {
+    background-color: #fff;
+    padding: 9px 15px 9px 23px;
+    width: 175px;
+    z-index: 2;
+    color: #000;
+}
+.public-nav-layout .category .class .ico {
+    display: inline-block;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: top;
+    width: 16px;
+}
+.public-nav-layout .category .class .ico img {
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.public-nav-layout .category .class h4 {
+    display: inline-block;
+    vertical-align: top;
+}
+.public-nav-layout .category .class h4 a {
+    color: #fff;
+    font-size: 13px;
+    height: 16px;
+    line-height: 16px;
+}
+.public-nav-layout .category .menu li:hover .class h4 a {
+    color: #b61d1d;
+}
+.public-nav-layout .category .class .arrow {
+    background: rgba(0, 0, 0, 0) url("../images/top_bg.png") no-repeat scroll -150px -10px;
+    float: right;
+    height: 5px;
+    margin: 5px 0 0;
+    width: 3px;
+}
+.public-nav-layout .category .sub-class {
+    background-color: #fafafa;
+    border-color: transparent #f32613 #f32613;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    display: none;
+    left: 212px;
+    min-height: 450px;
+    padding: 10px 20px 19px;
+    position: absolute;
+    top: -1px;
+    width: 946px;
+    z-index: 1;
+}
+.public-nav-layout .category li:hover .sub-class {
+    display: block;
+}
+.public-nav-layout .category .sub-class-content {
+    display: block;
+    float: left;
+    width: 730px;
+}
+.public-nav-layout .category .recommend-class {
+    display: block;
+    font-size: 0;
+    overflow: hidden;
+    word-spacing: -1em;
+}
+.public-nav-layout .category .recommend-class span {
+    background-color: #7c7171;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: normal;
+    margin: 0 10px 10px 0;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.public-nav-layout .category .recommend-class span a {
+    color: #fff;
+    display: block;
+    line-height: 20px;
+    padding: 2px 10px;
+}
+.public-nav-layout .category .sub-class dl {
+    font-size: 0;
+    padding-top: 10px;
+    word-spacing: -1em;
+}
+.public-nav-layout .category .sub-class dl dt, .public-nav-layout .category .sub-class dl dd {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: normal;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.public-nav-layout .category .sub-class dl dt {
+    background: rgba(0, 0, 0, 0) url("../images/top_bg.png") no-repeat scroll right -25px;
+    height: 16px;
+    margin-right: 15px;
+    padding-right: 15px;
+    width: 70px;
+}
+.public-nav-layout .category .sub-class dl dt h3 {
+    color: #5c5251;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: right;
+}
+.public-nav-layout .category .sub-class dl dd {
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0;
+    width: 630px;
+    word-spacing: -1em;
+}
+.public-nav-layout .category .sub-class dl:last-child dd {
+    border-bottom: 0 none;
+}
+.public-nav-layout .category .sub-class dl dd a {
+    border-left: 1px solid #e7e7e7;
+    color: #7c7171;
+    display: inline-block;
+    font-size: 12px;
+    height: 14px;
+    letter-spacing: normal;
+    line-height: 14px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    vertical-align: top;
+    word-spacing: normal;
+}
+.public-nav-layout .category .sub-class dl dd a:hover {
+    color: #c81623;
+}
+.public-nav-layout .category .sub-class dl dd h5 {
+    color: #333;
+    font-size: 12px;
+    line-height: 20px;
+    margin: 4px 0 2px;
+}
+.public-nav-layout .category .sub-class-right {
+    display: block;
+    float: right;
+    height: 440px;
+    width: 194px;
+}
+.public-nav-layout .category .brands-list {
+}
+.public-nav-layout .category .brands-list ul {
+    font-size: 0;
+    height: 136px;
+    overflow: hidden;
+    word-spacing: -1em;
+}
+.public-nav-layout .category .brands-list li {
+    background-color: transparent !important;
+    display: inline-block;
+    font-size: 12px;
+    height: 31px;
+    letter-spacing: normal;
+    margin: 0 1px 3px 2px;
+    vertical-align: top;
+    width: 94px;
+    word-spacing: normal;
+}
+.public-nav-layout .category .brands-list li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.public-nav-layout .category .brands-list li a img {
+    bottom: 0;
+    height: 31px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 94px;
+    z-index: 2;
+}
+.public-nav-layout .category .brands-list li a span {
+    background-color: #fff;
+    color: #333;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    padding: 3px 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+    width: 86px;
+    z-index: 1;
+}
+.public-nav-layout .category .brands-list li a:hover span {
+    background: rgba(124, 113, 113, 0.95) none repeat scroll 0 0;
+    color: #fff;
+    z-index: 3;
+}
+.public-nav-layout .category .adv-promotions {
+    display: block;
+    margin: 0 2px;
+    width: 190px;
+}
+.public-nav-layout .category .adv-promotions a {
+    background: #fff none repeat scroll 0 0;
+    display: block;
+    height: 150px;
+    margin-top: 10px;
+    width: 190px;
+}
+.public-nav-layout .category .adv-promotions img {
+    background: #d3d3d3 none repeat scroll 0 0;
+    height: 150px;
+    width: 190px;
+}
+.nch-breadcrumb-layout {
+    text-align: center;
+}
+.nch-breadcrumb {
+    font-size: 0;
+    height: 20px;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: left;
+}
+.nch-breadcrumb span {
+    color: #999;
+    display: inline-block;
+    font-size: 12px;
+    height: 20px;
+    letter-spacing: normal;
+    line-height: 20px;
+    word-spacing: normal;
+}
+.nch-breadcrumb i {
+    color: #aaa;
+    font-size: 14px;
+    margin-right: 4px;
+}
+.nch-breadcrumb span.arrow {
+    color: #aaa;
+    font-family: "宋体";
+    line-height: 20px;
+    margin: 0 6px;
+}
+.nch-breadcrumb a {
+    color: #777;
+    display: block;
+}
+.nch-breadcrumb a:hover {
+    color: #d93600;
+}
+#top-banner {
+    display: none;
+    position: relative;
+}
+#top-banner .close {
+    background: rgba(0, 0, 0, 0) url("../images/close.gif") no-repeat scroll 0 0;
+    display: block;
+    height: 12px;
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    width: 35px;
+}

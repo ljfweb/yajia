@@ -1,0 +1,48 @@
+#faq {border-top: solid 1px #f5f5f5;}
+.faq-wrapper { width: 1200px; margin: auto; }
+#faq { background-color: #f5f5f5; width: 100%; padding-top:10px; border-top: solid 1px #e7e7e7; overflow: hidden;}
+#faq ul { font-size: 0; *word-spacing:-1px/*IE6、7*/; white-space: nowrap; padding: 0 0 10px 0; margin-left: 0 }
+#faq li { font-size: 12px; display: inline; float: left; padding-left: 40px; width: 120px;}
+#faq dl { display: block; width: 100%; margin: 10px 0px 0px 0px;}
+#faq dl dt { font: 14px/1.5 "Lucida Grande",tahoma,arial,\5b8b\4f53; margin-bottom: 4px; font-weight: bold;}
+#faq dl dd { font: 12px/1.5 "Lucida Grande",tahoma,arial,\5b8b\4f53; line-height: 24px; white-space: nowrap;}
+#faq dl dd i { font-size: 0; line-height: 0; background: url(../img/top_bg.png) no-repeat -80px -10px; vertical-align: middle; /*display: inline-block;*/ width: 0px; height: 0px; margin-right: 0px;}
+#faq dl dd a { color: #666;}
+.clearfix:after { clear: both; content: "."; display: block; height: 0; line-height: 0; visibility: hidden;}
+.clearfix { display: inline-block;}
+html[xmlns] .clearfix { display: block;}
+*html .clearfix{height:1%;}
+*+html .clearfix{height:1%;}
+
+/* 底部客服400 */
+.f-l { float: left; font-size: 12px; }
+.help .contact .ic, .service li { display: block; background:  url(../img/hd-and-btm.png) 0 0 no-repeat; _background: url(../img/hd-and-btm-8.png) 0 0 no-repeat; }
+.help { background-color: #f5f5f5; height: 165px; }
+.help dl { float: left; width: 160px; margin-right: 14px; padding: 20px 0; }
+.help dl a { color: #666; }
+.help .contact { margin-left: 16px; border-left: 1px solid #e7e7e7; }
+.help .contact-border { padding: 0px 0 20px 50px; border-left: 1px solid #fff; }
+.help .contact .tel, .help .contact .mail { height: 26px; line-height: 26px; padding-left: 36px; cursor: default; }
+.help .contact .tel { background-position: 0 -250px; color: #00B492; font-size: 20px; }
+.help .contact .tel:hover, .help .contact .mail:hover { text-decoration: none; }
+.help .contact .mail { font-size: 16px; background-position: 0 -280px; color: #666; }
+.help .contact .attention { padding-top: 10px; }
+.help .contact .weixin { width: 155px; }
+.help .weixin p, .help .qq ul{ margin-top:10px ;}
+
+.help .contact .weixin img { width: 85px; height:85px; }
+.help .contact .weixin span { display: block; line-height: 31px; height: 31px; padding: 0 16px 0 6px; color: #666; }
+.help .contact .sina, .help .contact .qq { height: 30px; line-height: 30px; padding-left: 36px; color: #666; }
+.help .contact .sina { background-position: 0 -310px; }
+.help .contact .qq { background-position: 0 -340px; }
+#faq .help .contact li{ margin-left:0px; padding-left:35px;}
+
+/*------------------------footer部分样式-----------------------*/
+#footer { font-size: 12px !important; border-top:1px solid #e7e7e7; text-align: center;  margin: 0 auto; padding-bottom: 10px; overflow: hidden; background:#F5F5F5; width:100%}
+#footer p { color: #666; word-spacing: 5px; padding: 10px 0; }
+#footer a { color: #666; text-decoration: none; }
+#footer a:hover { text-decoration: underline; }
+#footer .vol { font-family: Verdana, Geneva, sans-serif; font-weight: 600; font-style: oblique; font-size: 12px;}
+#footer .vol .b { color: #00F;}
+#footer .vol .o { color: #F60;}
+#footer .vol em { font-family: Georgia, Arial;  font-weight: 600; font-style: italic; color: #000; margin-left: 2px;}

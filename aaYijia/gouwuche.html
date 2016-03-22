@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>购物车</title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/bottom.css" />
+		<link rel="stylesheet" href="css/gouwuche.css" />
+		<script src="js/jquery-1.8.3.js"></script>
+			
+	</head>
+	<body onload="showCart()">
+		<!--**********************公用头部文件************************-->
+				<div class="public-top">
+			<div class="top-wrap">
+				<div class="user-entry">
+					您好，<span id="mingzi"></span>欢迎你来到<a href="#">宜家商城</a>
+					<span>[<a href="login.html">登录</a>]</span>
+					<span>[<a href="register.html">注册</a>]</span>
+					<span style="margin-left: 10px;">
+						<a href="#" style="color: red;">邀请返利</a></span>
+				
+				</div>
+			<div class="quick-menu">
+				<dl>
+					<dt><a href="wap.html">手机触屏版</a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#">免费开店</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">招商入驻</a></li>
+							<li><a href="#" >商家登录</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="#">我的订单</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">待付款订单</a></li>
+							<li><a href="#">待确认收货</a></li>
+							<li><a href="#">待评价交易</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="#">我的收藏</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">商品收藏</a></li>
+							<li><a href="#">店铺收藏</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+       				<dt>客户服务<i></i></dt>
+       				<dd>
+         			 	<ul>
+           				 	<li><a href="#">帮助中心</a></li>
+          				 	<li><a href="#">售后服务</a></li>
+           				 	<li><a href="#">客服中心</a></li>
+        			  	</ul>
+        			</dd>
+     			</dl>
+      	  		<dl>
+      	  			<dt>
+      	  				 <a>点评网</a>
+      	  			</dt>
+      	  		</dl>
+				</div>
+			</div>
+		</div>
+	<!--头部样式部分-->
+	<header class="ncc-head-layout">
+    <div class="site-logo"><a href="http://www.letaomart.ca/shop"><img src="http://www.letaomart.ca/data/upload/shop/common/04878464478687908.png" class="pngFix"></a></div>
+        <ul class="ncc-flow">
+      <li class="current"><i class="step1"></i>
+        <p>我的购物车</p>
+        <sub></sub>
+        <div class="hr"></div>
+      </li>
+      <li class=""><i class="step2"></i>
+        <p>填写核对购物信息</p>
+        <sub></sub>
+        <div class="hr"></div>
+      </li>
+      <li class=""><i class="step3"></i>
+        <p>支付提交</p>
+        <sub></sub>
+        <div class="hr"></div>
+      </li>
+      <li class=""><i class="step4"></i>
+        <p>订单完成</p>
+        <sub></sub>
+        <div class="hr"></div>
+      </li>
+    </ul>
+      </header>
+	<!--购物车内部-->
+		<style type="text/css">
+			#cart{ position: relative; top: 10px; right: 10px; width: 100%px; border: 1px solid blue; }
+			#cart ul{ width: 100%;}
+			#cart li{ width: 240px;  width:240px;float: left; list-style: none; text-align: center;}
+			#cart li img{ margin-top: 40px; width: 40px; height: 20px;}
+			a{ cursor: pointer; color: blue;}
+			.clear{ clear: both;}
+		</style>
+		
+		<div id="cart"></div>
+		<a onclick="clearCart()">清除购物车中所有的商品</a>
+		
+	<script type="text/javascript">
+		
+				
+		function showCart(){
+			
+				
+			var col = document.cookie.split("; ");
+			
+			var s = "";
+			for(var i in col){
+				
+				var arr = col[i].split("=");
+				if(arr.length == 2){
+					//console.log(arr);
+					var a2 = arr[1].split("|");
+					var a3=arr[0];
+					
+					if(a2.length == 4){
+						s += "<li><img src='"+a2[0]+"' /><br>"+a2[1]+"<br>"+a2[2]+"<br>"+a2[3]+"<a onclick=\"shanchuCart('"+a3+"')\">删除</a></li>";
+					}
+				}
+			}
+			document.getElementById("cart").innerHTML = s;
+		}
+		  		function shanchuCart(ind){
+				var col = document.cookie.split("; ");
+					
+			for(var i in col){
+				
+				var arr = col[i].split("=");
+				if(arr[0]==ind)
+				addCookie(arr[0], "", -1);
+			
+			}
+				
+			showCart();
+		}
+			function clearCart(){
+			var col = document.cookie.split("; ");
+			for(var i in col){
+				var arr = col[i].split("=");
+				//console.log(arr[0]);
+				addCookie(arr[0], "", -1);
+			}
+			showCart();
+		}
+			function addCookie(_name, _value, _day){
+			var day = _day;
+			var d = new Date();
+			d.setDate(d.getDate()+day);
+			document.cookie = _name+"="+_value+";expires="+d.toGMTString();
+		}	
+	</script>
+	  <!--******************************公用底部*****************************-->
+		<div id="footer" class="wrapper">
+  			<p><a href="http://www.letaomart.ca/shop">首页</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=22">关于我们</a>
+                | <a target="_blank" href="/shop/index.php?act=article&amp;op=article&amp;ac_id=10">使用条款</a>
+                | <a target="_blank" href="/shop/index.php?act=article&amp;op=article&amp;ac_id=11">隐私条款</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=25">商务合作</a>
+                | <a href="#">友情链接</a>
+                | <a href="http://#">广告服务</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=23">联系我们</a>
+                | <a target="_blank" href="http://www.hwdianping.com/">海外点评</a>
+                      </p>
+  				Copyright 2015 2016<br>
+  	
+  			
+	</body>
+</html>

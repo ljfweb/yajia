@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet"  href="css/home_login.css"/>
+		<script src="js/jquery-1.8.3.js"></script>
+		<style type="text/css">
+			.public-top-layout, .head-app, .head-search-bar, .head-user-menu, .public-nav-layout, .nch-breadcrumb-layout, #faq {
+				display: none !important;
+			}
+			.public-head-layout {
+				margin: 10px auto -10px auto;
+			}
+			.wrapper {
+				width: 1000px;
+			}
+			#footer {
+				border-top: none!important;
+				padding-top: 30px;
+			}
+</style>
+
+	</head>
+	<body onload="getcode()">
+		<div class="header-wrap">
+
+   	 <h1 class="site-logo"><a href="http://www.letaomart.ca"><img src="http://www.letaomart.ca/data/upload/shop/common/04878464478687908.png" class="pngFix"></a></h1>
+   
+    </div>
+	<div class="nc-login-layout">
+  <div class="left-pic"><img src="http://www.letaomart.ca/data/upload/shop/login/3.jpg" border="0"></div>
+  <div class="nc-login">
+    <div class="nc-login-title">
+      <h3>用户登录</h3>
+    </div>
+    <div class="nc-login-content" id="demo-form-site">
+      <form id="login_form" method="post" action="index.php?act=login&amp;op=login" class="bg">
+        <input type="hidden" name="formhash" value="kk4U5P-Ll8kbeOj7THlUY7Prx0kLmrM">        <input type="hidden" name="form_submit" value="ok">
+        <input name="nchash" type="hidden" value="fa97f07f">
+        <dl>
+          <dt>用户名</dt>
+          <dd style="min-height:54px;">
+            <input type="text" class="text valid" autocomplete="off" name="user_name" id="user_name">
+            <label></label>
+          </dd>
+        </dl>
+        <dl>
+          <dt>密&nbsp;&nbsp;&nbsp;码 </dt>
+          <dd style="min-height:54px;">
+            <input type="password" class="text" name="password" autocomplete="off" id="password">
+            <label></label>
+          </dd>
+        </dl>
+                <dl>
+          <dt>验证码</dt>
+          <dd style="min-height:54px;" >
+            <input type="text" name="captcha" autocomplete="off" class="text w50 fl" id="captcha" maxlength="4" size="10">
+            <span id="codes" style=" border: 1px solid #00B492; width: 80px; height: 20px;"></span> <a href="javascript:void(0)" class="ml5" onclick="getcode()">看不清，换一张</a>
+            <label></label>
+          </dd>
+        </dl>
+                <dl>
+          <dt>&nbsp;</dt>
+          <dd>
+            <input  type="button" class="submit" value="登&nbsp;&nbsp;&nbsp;录">
+            <a class="forget" href="index.php?act=login&amp;op=forget_password">忘记密码？</a>
+            <input type="hidden" value="http://www.letaomart.ca/shop/index.php?act=show_groupbuy&amp;op=index" name="ref_url">
+          </dd>
+        </dl>
+      </form>
+      <dl class="mt10 mb10">
+        <dt>&nbsp;</dt>
+        <dd>还不是本站会员？立即<a title="" href="register.html">注册</a></dd>
+      </dl>
+            <dl>
+        <dd class="nc-login-other">
+          <p>您可以用合作伙伴账号登录：</p>
+                    <a href="http://www.letaomart.ca/shop/api.php?act=toqq" title="QQ" class="qq">&nbsp;</a>
+                            </dd>
+      </dl>
+          </div>
+    <div class="nc-login-bottom"></div>
+  </div>
+</div>
+</div>
+		<script src="js/login.js"></script>
+	</body>
+</html>

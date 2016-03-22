@@ -1,0 +1,48 @@
+/*头部公用样式---------------------------------------------------*/
+.public-top{font-family: Arial, "宋体"; line-height: 20px; color: #777; background-color: #FAFAFA; border-bottom: solid 1px #F0F0F0;}
+.top-wrap{width:1200px;height: 30px;}
+.user-entry{width: 45%; height: 20px; float: left; padding:5px 0;}
+.user-entry a { color: #333333}
+.quick-menu{font-size: 0; *word-spacing:-1px/*IE6、7*/; text-align: right; width: 55%; height: 30px; float: right;}
+.public-top .quick-menu a { color: #777 !important;}
+.quick-menu dl{text-align: left; vertical-align: top; letter-spacing: normal; word-spacing: normal; display: inline-block; *display:inline/*IE6、7*/; width: 80px; height: 30px; position: relative; z-index: 999; *zoom:1/*IE6、7*/;}
+.public-top .quick-menu dl dt { font-size: 12px; line-height: 20px; height: 20px; padding: 5px 0; position: absolute; z-index: 2; top: 0px; left: 12px;}
+.public-top .quick-menu dl dt a:hover { text-decoration: none; color: #F30;}
+.public-top .quick-menu dl dt i { background: url(../img/top_bg.png) no-repeat 0 0; vertical-align: middle; display: inline-block; width: 6px; height: 3px; margin-left: 6px;-webkit-transition: .2s ease-in; -moz-transition: -webkit-transform .2s ease-in; -o-transition: -webkit-transform .2s ease-in; transition: .2s ease-in;}
+.public-top .quick-menu dl:hover dt i { FILTER: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); -moz-transform: rotate(180deg); -moz-transform-origin: 50% 30%; -webkit-transform: rotate(180deg); -webkit-transform-origin: 50% 30%; -o-transform: rotate(180deg); -o-transform-origin: 50% 30%; transform: rotate(180deg); transform-origin: 50% 30%;}
+.public-top .quick-menu dl dd { background-color: #FFF; display: none; width: 78px; border: solid 1px #F0F0F0; position: absolute; z-index: 1; top: 0; left: 0;}
+.public-top .quick-menu dl:hover dd{display: block;}
+.public-top .quick-menu dl dd ul { width: 78px; margin: 30px 0 0 0; }
+.public-top .quick-menu dl dd ul li a { font-size: 12px; line-height: 24px; display: block; clear: both; padding: 2px 0 2px 11px;}
+.public-top .quick-menu dl dd ul li a:hover { text-decoration: none; background-color: #F7F7F7;}
+
+
+/*logo和搜索栏--------------------------------------------------*/
+
+
+
+
+
+
+
+
+/*导航栏目---------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+/*banner和轮播图-------------------------------------------------*/
+
+
+
+
+
+
+
+/*热卖商品推荐--------------------------------------------------------*/

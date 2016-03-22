@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<script src="js/jquery-1.8.3.js"></script>
+	</head>
+	<style>
+		.r-head{width: 1263px; height: 100px; }
+		.r-wrap{width: 1000px; height: 100px; margin: 10px auto -10px auto;}
+		.r-logo{float: left;margin:15px 10px auto 0; width: 240px;}
+		.zhuce{width: 850px; margin: 0 auto;}
+		.zc-left{width: 450px; height: 334px; float: left; margin: 10px 0; display: inline; line-height: 24px;}
+		.zc-left h3{font-size: 18px; font-weight: 700; color: #555; line-height: 30px; margin-top: 2px; margin-bottom: 6px;}
+		.zc-left ol { width: 420px; margin-top: 20px; border-bottom-style: dashed 2px #000;}
+		.zc-left ol li{font-size: 14px;
+						line-height: 48px;
+						display: block;
+						vertical-align: middle;
+						width: 200px;
+						height: 48px;
+						float: left;
+						padding: 0 0 12px 0;
+						margin: 0 0 5px 10px;
+						overflow: hidden;}
+		.zc-left ol li i{display: inline-block;background: url(img/login.png) no-repeat -304px -48px scroll;
+		     				vertical-align: middle;
+		     				width: 48px;
+		     				height: 48px;
+		     				 margin-right: 10px;
+		     				 }
+		.nc-login-now .register{
+					font-weight: 600;
+					line-height: 26px;
+					color: #555;
+					background: #FFF url(img/login.png) no-repeat scroll -98px -56px;
+					text-align: center;
+					display: inline-block;
+					width: 50px;
+					height: 26px;
+					margin: 0 6px;
+		}
+		.zc-login{width: 400px; height: 429px; float: right; }
+		.zc-login .title{width: 400px; height: 61px; border: #D8D8D8 solid; }
+		.zc-login .title h3{font-size: 18px;
+						font-family: "microsoft yahei";
+						font-weight: 700;
+						line-height: 20px;
+						padding: 15px 0 25px 25px;
+						color: #555;}
+		.zc-con{background: #F9F9F9;
+					padding: 0 20px;
+					border: #D8D8D8 solid;
+					border-width: 0 1px;
+					overflow: hidden;
+					zoom: 1;}		
+		.zc-con dl{ width: 358px;
+					float: left;
+					clear: both;
+					padding: 0;
+					height: 54px;
+					margin: 0;}
+					
+		.zc-con dl dt{
+					font-size: 14px;
+					line-height: 28px;
+					color: #777;
+					text-align: right;
+					width: 22%;
+					float: left;
+				}	
+		.zc-con dl dd{
+					text-align: left;
+					width: 75%;
+					
+			}
+		.zc-con dl dd .text{font-family: Tahoma;
+						width: 220px;
+						height: 20px;
+						line-height: 20px;
+						background-color: #FFF;
+						padding: 3px!important;
+						border: solid 1px;
+						border-color: #BBB;}		
+		.text:focus{outline:none;border-color:#69f;box-shadow:0rem 0rem 0.5rem 0rem #69f inset;}
+		.field-tip{float:left;width:60%;line-height:2rem;margin-left:25%;text-indent:1rem;color:#933;}
+		.field .valid{border-color:#3c3;box-shadow:0rem 0rem 0.5rem 0rem #3c3 inset;}
+	</style>
+	<body onload="getcode()">
+		<div class="r-head">
+			<div class="r-wrap"
+				<h3 class="r-logo">
+					<a href="index.html">
+						<img src="img/logo.png"  />
+					</a>
+				</h3>
+			</div>
+		</div>
+		
+		<div class="zhuce">
+			<div class="zc-left">
+				<h3>注册后你可以</h3>
+				<ol>
+			      <li class="ico05"><i></i>购买商品支付订单</li>
+			      <li class="ico01"><i></i>申请开店销售商品</li>
+			      <li class="ico03"><i></i>空间好友推送分享</li>
+			      <li class="ico02"><i></i>收藏商品关注店铺</li>
+			      <li class="ico06"><i></i>商品咨询服务评价</li>
+			      <li class="ico04"><i></i>安全交易诚信无忧</li>
+			      <div class="clear"></div>
+			    </ol>
+				<h3 class="mt20">如果您是本站用户</h3>
+				<div class="nc-login-now mt10">
+					<span class="ml20">我已经注册过账号，立即
+						<a href="" title="" class="register">登录</a>
+					</span>
+						<span>
+							或是
+							<a class="forget" href="#">找回密码？</a>
+							
+						</span>
+				</div>
+			</div>
+			<div class="zc-login">
+				<div class="title">
+					<h3>用户注册</h3>
+				</div>
+				<div class="zc-con">
+					<form id="register_form" action="#" method="post" >
+						<dl>
+							<dt>用户名:</dt>
+							<dd style="min-height: 54px;"><input type="text" name="username" id="user-name" class="text"/>
+								<span></span>
+							</dd>
+							
+						</dl>
+						<dl>
+							<dt>设置密码:</dt>
+							<dd style="min-height: 54px;"><input type="password" name="password" id="password" class="text"/><span></span></dd>
+							
+						</dl>
+						<dl>
+							<dt>确认密码:</dt>
+							<dd style="min-height: 54px;"><input type="password" name="t-password" id="t-password" class="text"/><span></span></dd>
+						
+						</dl>
+						<dl>
+							<dt>邮箱:</dt>
+							<dd style="min-height: 54px;"><input type="text" name="email" id="email" class="text"/><span></span></dd>
+						
+						</dl>
+						<dl>
+							<dt>验证码:</dt>
+							
+									<dd style="min-height: 54px;">
+										<input type="text" id="yzm" name="yzm" class="text"  style="width: 58px; height: 28px;"/>
+										<span id="scyzm" style="width:90px; height: 26px; margin-left: 5px; border: 1px solid #0000FF;">1111</span>
+										<span style="font-size: 12px;">
+											<a class="yzmgh" href="#">看不清,楚换一张</a>			
+										</span>
+									</dd>
+									
+								</dl>
+						
+								<dl>
+									<dt>&nbsp;</dt>
+									<dd>
+										<input  style="background: url(img/login.png) no-repeat 0 -56px scroll ; height: 34px;" type="button" id="submit" value="立即注册" class="submit" title="立即注册">
+										<input name="agree" type="checkbox" class="vm ml10" id="clause" value="1" checked="checked">
+										<span for="clause" class="ml5">阅读并同意<a style="color: #c53801;" href="#" class="agreement" title="阅读并同意">服务协议</a></span>
+									</dd>
+								</dl>
+					</form>
+				</div>
+				
+				
+			</div>
+		</div>
+		<!--*********正则判断，存入cookie，登录取出并验证cookie*******************-->
+		<script src="js/reg.js"></script>		
+
+	</body>
+</html>

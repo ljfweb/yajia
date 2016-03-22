@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>宜家商城</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/search.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/dibubaozhang.css" />
+		<link rel="stylesheet" href="css/bottom.css" />
+		
+		<script type="text/javascript" src="js/jquery-1.8.3.js" ></script>
+		<script src="js/login.js"></script>
+	</head>
+	<body onload="getcode()">
+		
+		<!--**********************工具栏******************-->
+		<div class="nc-appbar" id="ncToolbar">
+				<div class="nc-appbar-tabs" id="appBarTabs">
+				<div class="ever">
+					<div class="cart">
+      					 <a href="javascript:void(0);" id="rtoolbar_cart">
+          				<span class="icon"></span>    			
+         				<span class="tit">购物车</span>
+          				<i id="rtoobar_cart_count" class="new_msg" style="display: none;"></i>
+       					 </a>
+   				   </div>
+   				<div class="chat">
+   					<a href="javascript:void(0);" id="chat_show_user">
+   					<span class="icon"></span><i id="new_msg" class="new_msg" style="display:none;">
+   					</i><span class="tit">在线联系</span></a>
+   				</div>
+   				<div class="chat">
+					<a href="javascript:void(0);" id="chat_show_zuji">
+						<span class="zuji"></span>
+						<i id="new_zuji" class="new_zuji" style="display:none;">
+						</i><span class="tit">我的足迹</span>
+					</a>
+				</div>
+				<div class="compare">
+        			<a href="javascript:void(0);" id="compare">
+         		 		<span class="icon"></span>
+          				<span class="tit">商品对比</span>
+       				</a>
+    			  </div>
+			</div>
+			<!--*********************侧边工具登录******************-->
+		<div class="variation">
+			<div class="middle">
+				<div class="user" nctype="a-barLoginBox">
+				<a href="javascript:void(0);">
+				<div class="avatar"></div>
+				<span class="tit">会员登录</span> </a>
+				</div>
+			<div class="user-login-box" nctype="barLoginBox" style=""> <i class="arrow"></i> <a href="javascript:void(0);" class="close" nctype="close-barLoginBox" title="关闭">X</a>
+				<form id="login_form" method="post" action="index.php?act=login&amp;op=login" onsubmit="ajaxpost('login_form', '', '', 'onerror')">
+					<input type="hidden" name="formhash" value="rdsWXOpq4RWPH1SmlHKsNwYWOyMXvBJ">
+					<input type="hidden" name="form_submit" value="ok">
+					<input name="nchash" type="hidden" value="fa97f07f">
+					<dl>
+					<dt><strong>登录名</strong></dt>
+						<dd>
+							<input type="text" class="text" tabindex="1" autocomplete="off" name="user_name" >
+							<label></label>
+						</dd>
+					</dl>
+					<dl>
+						<dt><strong>登录密码</strong><a href="index.php?act=login&amp;op=forget_password" target="_blank">忘记登录密码？</a></dt>
+						<dd>
+							<input tabindex="2" type="password" class="text" name="password" autocomplete="off">
+							<label></label>
+						</dd>
+					</dl>
+					<dl>
+						<dt><strong>验证码</strong><a href="getcode()">更换验证码</a></dt>
+						<dd>
+							<input tabindex="3" type="text" name="captcha" autocomplete="off" class="text w130" id="captcha2" maxlength="4" size="10">
+							<span id="codes" style=" border: 1px solid #00B492; width: 80px; height: 20px;"></span>
+							<label></label>
+						</dd>
+					</dl>
+					<div class="bottom">
+					<input type="button" class="submit" value="确认">
+					<input type="hidden" value="" name="ref_url">
+					<a href="register.html">注册新用户</a> </div>
+				</form>
+			</div>
+
+			<div class="prech">&nbsp;</div>
+			</div>
+			<div class="gotop"><a href="javascript:void(0);" id="gotop">
+				<span class="icon"></span>
+				<span class="tit">返回顶部</span></a>
+				
+			</div>
+		</div>
+	
+	</div>
+</div>
+
+	  	<!--*********************头部***************************-->
+	  	
+		<div class="public-top">
+			<div class="top-wrap">
+				<div class="user-entry">
+					您好，<span id="mingzi"></span>欢迎你来到<a href="#">宜家商城</a>
+					<span>[<a href="login.html">登录</a>]</span>
+					<span>[<a href="register.html">注册</a>]</span>
+					<span style="margin-left: 10px;">
+						<a href="#" style="color: red;">邀请返利</a></span>
+				
+				</div>
+			<div class="quick-menu">
+				<dl>
+					<dt><a href="wap.html">手机触屏版</a></dt>
+				</dl>
+				<dl>
+					<dt><a href="#">免费开店</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">招商入驻</a></li>
+							<li><a href="#" >商家登录</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="#">我的订单</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">待付款订单</a></li>
+							<li><a href="#">待确认收货</a></li>
+							<li><a href="#">待评价交易</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="#">我的收藏</a><i></i></dt>
+					<dd>
+						<ul>
+							<li><a href="#">商品收藏</a></li>
+							<li><a href="#">店铺收藏</a></li>
+						</ul>
+					</dd>
+				</dl>
+				<dl>
+       				<dt>客户服务<i></i></dt>
+       				<dd>
+         			 	<ul>
+           				 	<li><a href="#">帮助中心</a></li>
+          				 	<li><a href="#">售后服务</a></li>
+           				 	<li><a href="#">客服中心</a></li>
+        			  	</ul>
+        			</dd>
+     			</dl>
+      	  		<dl>
+      	  			<dt>
+      	  				 <a>点评网</a>
+      	  			</dt>
+      	  		</dl>
+				</div>
+			</div>
+		</div>
+	
+		<!--*******************logo和搜索***********************************-->
+		<div class="header-wrap">
+			<div class="head-con">
+				<h1 class="logo">
+					<a href="#">
+						<img src="img/logo.png" class="big-logo" />
+					</a>
+				</h1>
+				<div class="search-bar" id="search">
+					<ul class="tab">
+						<li  title="请输入您要搜索的商品关键字" act="search" class="current">商品</li>
+						<li title="请输入您要搜索的店铺关键字" act="store_list">店铺</li>
+					</ul>
+					<form class="search-form">
+						<input type="hidden" value="search"   id="search-act" />
+						<input placeholder="请输入您要搜索的商品关键字" name="keyword" id="keyword" type="text" class="input-text" value="">
+						<input type="submit"  id="button" value="搜索" class="input-submit"/>	
+					</form>
+					<script type="text/javascript">
+						$(".tab li").click(function(){
+							var index0=$(this).index();
+							$(this).addClass("current").siblings().removeClass("current");
+								
+							
+						})
+					</script>
+					<div class="keyword">热门搜索：        
+     					<ul>
+		                    <li><a href="#">生鲜</a></li>
+		                    <li><a href="#">蔬菜</a></li>
+		                    <li><a href="#">水果</a></li>
+		                    <li><a href="#">食品</a></li>
+		                    <li><a href="#">调味料</a></li>
+                  		</ul>
+      				</div>
+				</div>
+				
+				<div class="head-user-menu">
+					<dl class="my-mall">
+						<dt><span class="ico"></span>我的商城<i class="arrow"></i></dt>
+						<dd>
+							<div class="sub-title">
+								<h4>                        
+				            </h4>
+								<a href="http://www.letaomart.ca/shop/index.php?act=member&amp;op=home" class="arrow">我的用户中心<i></i></a></div>
+							<div class="user-centent-menu">
+								<ul>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_message&amp;op=message">站内消息(<span>0</span>)</a></li>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_order" class="arrow">我的订单<i></i></a></li>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_consult&amp;op=my_consult">咨询回复(<span id="member_consult">0</span>)</a></li>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_favorites&amp;op=fglist" class="arrow">我的收藏<i></i></a></li>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_voucher">代金券(<span id="member_voucher">0</span>)</a></li>
+									<li><a href="http://www.letaomart.ca/shop/index.php?act=member_points" class="arrow">我的积分<i></i></a></li>
+								</ul>
+							</div>
+							<div class="browse-history">
+								<div class="part-title">
+									<h4>最近浏览的商品</h4>
+									<span style="float:right;"><a href="http://www.letaomart.ca/shop/index.php?act=member_goodsbrowse&amp;op=list">全部浏览历史</a></span>
+								</div>
+								<ul>
+									<li class="no-goods">暂无商品</li>
+								</ul>
+							</div>
+						</dd>
+					</dl>
+					<dl class="my-cart">
+						<dt><span class="ico"></span>购物车结算<i class="arrow"></i></dt>
+						<dd>
+							<div class="sub-title">
+								<h4>最新加入的商品</h4>
+							</div>
+							<div class="incart-goods-box">
+								<div class="incart-goods"> <img class="loading" src="img/t0107cf3d0cd9a66da5.jpg"> </div>
+							</div>
+							<div class="checkout"> <span class="total-price">共<i>0</i>种商品</span><a href="http://www.letaomart.ca/shop/index.php?act=cart" class="btn-cart">结算购物车中的商品</a> </div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!--****************************导航****************************-->
+		<div class="public-nav-layout">
+	<div class="wrapper">
+		<div class="all-category">
+			<div class="title">
+				<i></i>
+				<h3>
+							<a href="http://www.letaomart.ca/shop/index.php?act=category&amp;op=index">全部商品分类</a>
+						</h3>
+			</div>
+			<div class="category">
+				<ul class="menu">
+					<li cat_id="593" class="odd">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-593.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=593">食品饮料</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="593" style="display: none; top: -3px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=616" title="休闲零食">休闲零食</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=617" title="坚果炒货">坚果炒货</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=618" title="肉干肉松">肉干肉松</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=619" title="蜜饯果脯">蜜饯果脯</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=620" title="糖果/巧克力">糖果/巧克力</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=603">生鲜食品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=654">水果</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=655">蔬菜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=656">海鲜水产</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=657">禽蛋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=658">鲜肉</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=659">加工类肉食</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=660">冷冻品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=661">半成品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=596">休闲食品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=616">休闲零食</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=617">坚果炒货</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=618">肉干肉松</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=619">蜜饯果脯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=620">糖果/巧克力</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=621">饼干糕点</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=597">粮油调味</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=622">米面杂粮</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=623">食用油</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=624">调味品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=625">各式干货</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=626">方便食品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=627">有机食品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=599">饮料冲调</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=633">水</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=634">饮料</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=635">牛奶/豆浆</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=636">茶叶</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=637">咖啡/奶茶</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=638">冲饮谷物</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=600">营养健康</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=639">基础营养</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=640">美体养颜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=641">滋补调养</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=642">骨骼健康</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=643">保健茶饮</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=644">保健调理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=645">无糖食品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=602">健康礼品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=652">海味干货</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=653">参茸礼品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1057">卵磷脂</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1058">鱼油</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1059">维生素</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="3" class="even">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-3.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=3">家居家装</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="3" style="display: none; top: -37px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=206" title="床品件套">床品件套</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=207" title="被子">被子</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=208" title="枕芯枕套">枕芯枕套</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=209" title="床单被罩">床单被罩</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=210" title="毛巾被/毯">毛巾被/毯</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=200">家纺用品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=206">床品件套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=207">被子</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=208">枕芯枕套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=209">床单被罩</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=210">毛巾被/毯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=211">床垫/床褥</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=212">蚊帐/凉席</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=213">抱枕坐垫</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=216">窗帘/窗纱</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=201">灯饰照明</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=218">装饰灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=219">落地灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=220">吸顶灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=221">台灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=223">筒灯/射灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=224">节能灯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1062">LED灯</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=202">生活日用</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=228">收纳用品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=229">雨伞雨具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=230">浴室用品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=231">缝纫用品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=232">洗晒用品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=233">净化除味</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1127">日用杂品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=203">家装家饰</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=234">桌布/罩件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=235">地毯地垫</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=236">沙发垫套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=237">相框/画框</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=238">墙画墙贴</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=239">节庆饰品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=240">工艺摆件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=241">工艺陶瓷</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=242">日用陶瓷</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1063">工艺品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1064">家用饰品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=204">清洁日用</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=244">居室清洁</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=247">皮具护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=248">衣物清洁</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1060">家具家私</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1065">卧房家具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1066">餐厅家具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1067">起居家具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1068">办公家具</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1061">家装用品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1069">水槽</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1070">龙头</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1071">淋浴花洒</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1072">门铃</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1073">电气开关</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1074">电工电料</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1075">建材五金</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1076">装修材料</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1077">监控安防</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1078">瓷砖石材</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1079">浴室配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1080">橱柜浴柜</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="256" class="odd">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-256.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=256">数码办公</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="256" style="display: none; top: -71px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=264" title="手机电池">手机电池</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=265" title="蓝牙耳机">蓝牙耳机</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=266" title="充电器/数据线">充电器/数据线</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=267" title="手机耳机">手机耳机</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=268" title="手机贴膜">手机贴膜</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=258">手机配件</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=264">手机电池</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=265">蓝牙耳机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=266">充电器/数据线</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=267">手机耳机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=268">手机贴膜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=269">手机存储卡</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=270">手机保护壳</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=271">车载配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=272">iPhone 配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=275">手机饰品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=260">数码配件</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=282">存储卡/读卡器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=283">相机/摄像机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=284">镜头/滤镜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=285">闪光灯/手柄</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=286">相机包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=287">三脚架/云台</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=288">相机清洁</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=289">相机贴膜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=290">机身附件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=291">镜头附件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=292">电池/充电器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=293">移动电源</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=261">时尚影音</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=294">MP3/MP4</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=295">智能设备</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=296">耳机/耳麦</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=297">音箱</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=298">高清播放器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=299">电子书</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=300">电子词典</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=303">麦克风</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=306">数码相框</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=307">苹果配件</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=390">电脑整机</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=398">笔记本</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=401">平板电脑</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=403">台式机</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=391">电脑配件</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=406">CPU/内存/散热器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=407">主板/显卡</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=410">硬盘/固态硬盘</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=412">机箱/电源</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=414">显示器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=417">声卡/扩展卡</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=418">装机配件</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=392">外设产品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=419">鼠标/键盘</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=421">U盘/移动硬盘</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=423">摄像头</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=425">游戏设备</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=426">电视盒</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=428">鼠标垫</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=429">插座/线缆</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=430">UPS电源</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=432">电脑工具/清洁</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=393">网络产品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=434">路由器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=435">网卡</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=437">网络存储</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=394">办公打印</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=440">打印机/一体机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=442">投影机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=443">投影配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=444">传真机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=446">碎纸机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=447">扫描仪</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=449">硒鼓/墨粉</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=451">墨盒/色带</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1081">安防监控</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1082">支付设备/POS机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1083">会议设备</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1084">办公文具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1085">学生文具</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+									<ul>
+										<li>
+											<a title="DELL" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=179"><img width="90" alt="DELL" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398156232757027_sm.jpg"><span>DELL</span></a>
+										</li>
+										<li>
+											<a title="金士顿" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=182"><img width="90" alt="金士顿" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398156705753579_sm.jpg"><span>金士顿</span></a>
+										</li>
+										<li>
+											<a title="TP-LINK" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=183"><img width="90" alt="TP-LINK" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398156873572761_sm.jpg"><span>TP-LINK</span></a>
+										</li>
+										<li>
+											<a title="罗技" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=185"><img width="90" alt="罗技" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398157235673753_sm.jpg"><span>罗技</span></a>
+										</li>
+										<li>
+											<a title="雷蛇" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=187"><img width="90" alt="雷蛇" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398157472174891_sm.jpg"><span>雷蛇</span></a>
+										</li>
+										<li>
+											<a title="爱普生" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=192"><img width="90" alt="爱普生" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398158266047493_sm.jpg"><span>爱普生</span></a>
+										</li>
+										<li>
+											<a title="飞利浦" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=196"><img width="90" alt="飞利浦" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398158808225051_sm.jpg"><span>飞利浦</span></a>
+										</li>
+										<li>
+											<a title="松下" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=201"><img width="90" alt="松下" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398159595550035_sm.jpg"><span>松下</span></a>
+										</li>
+										<li>
+											<a title="索爱" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=206"><img width="90" alt="索爱" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398160348310562_sm.gif"><span>索爱</span></a>
+										</li>
+										<li>
+											<a title="三星" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=208"><img width="90" alt="三星" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398160720944823_sm.jpg"><span>三星</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="308" class="even">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-308.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=308">厨房家电</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="308" style="display: none; top: -105px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=318" title="家庭影院">家庭影院</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=319" title="DVD播放机">DVD播放机</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=320" title="迷你音响">迷你音响</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=321" title="烟机/灶具">烟机/灶具</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=322" title="热水器">热水器</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=309">家用电器</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=318">家庭影院</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=319">DVD播放机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=320">迷你音响</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=321">烟机/灶具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=322">热水器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=323">消毒柜/洗碗机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=324">酒柜/冰吧/冷柜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=325">家电配件</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=310">生活电器</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=327">电风扇</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=328">吸尘器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=329">加湿器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=330">净水设备</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=331">饮水机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=334">电话机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=335">插头插座</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=339">取暖电器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=340">其它生活电器</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=311">厨房电器</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=341">料理/榨汁机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=342">豆浆机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=343">电饭煲</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=344">压力锅</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=345">面包机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=346">咖啡机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=347">微波炉</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=348">电烤箱</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=349">电磁炉</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=350">面条机</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=354">电水壶/热水瓶</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=357">其它厨房电器</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=312">个护健康</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=358">剃须刀</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=359">剃/脱毛器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=363">智能马桶盖</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=364">按摩器/按摩椅</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=365">按摩器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=366">足浴盆</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=367">计步器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=368">健康秤/厨房秤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=369">血压计/血糖仪</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=370">体温计</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=372">其它健康电器</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=313">五金家装</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=374">手动工具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=383">厨卫五金</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=384">家居五金</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1104">厨具餐具</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1107">烹饪锅具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1108">厨用杂件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1109">刀剪菜板</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1110">餐具套装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1111">碗/碟/盘</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1112">筷勺/刀叉</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1113">一次性餐具</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1105">收纳保鲜</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1114">保鲜盒</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1115">保鲜膜/袋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1116">调料器皿</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1117">饭盒/提锅</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1106">茶具酒具</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1118">整套茶具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1119">茶杯/茶壶</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1120">茶盘茶托</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1121">茶具配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1122">茶宠摆件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1123">酒杯/套装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1124">酒具配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1125">水杯/保温壶</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="470" class="odd">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-470.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=470">个护化妆</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="470" style="display: none; top: -139px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=478" title="洁面乳">洁面乳</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=479" title="爽肤水">爽肤水</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=480" title="精华露">精华露</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=482" title="面膜面贴">面膜面贴</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=483" title="眼部护理">眼部护理</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=471">面部护理</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=478">洁面乳</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=479">爽肤水</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=480">精华露</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=482">面膜面贴</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=483">眼部护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=484">颈部护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=485">T区护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=487">防晒隔离</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=472">身体护理</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=488">洗发护发</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=489">染发/造型</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=490">沐浴</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=491">磨砂/浴盐</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=492">护体乳液</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=493">手工/香皂</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=494">香薰精油</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=495">纤体瘦身</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=496">脱毛膏</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=497">手足护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=498">洗护用品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=474">女性护理</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=502">卫生巾</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=504">洗液</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=475">男士护理</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=507">脸部护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=508">眼部护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=509">身体护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=511">剃须护理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=512">防脱洗护</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=476">魅力彩妆</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=514">粉底/遮瑕</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=515">腮红</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=516">眼影/眼线</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=517">眉笔</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=518">睫毛膏</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=519">唇膏唇彩</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=520">彩妆组合</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=521">卸妆</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=522">美甲</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=523">彩妆工具</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=524">假发</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=477">香水SPA</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=525">女士香水</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=526">男士香水</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=527">组合套装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=528">迷你香水</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=529">香体走珠</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+									<ul>
+										<li>
+											<a title="相宜本草" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=115"><img width="90" alt="相宜本草" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398099611242673_sm.jpg"><span>相宜本草</span></a>
+										</li>
+										<li>
+											<a title="Dior" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=116"><img width="90" alt="Dior" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398099738566948_sm.jpg"><span>Dior</span></a>
+										</li>
+										<li>
+											<a title="纪梵希" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=122"><img width="90" alt="纪梵希" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398100614445814_sm.jpg"><span>纪梵希</span></a>
+										</li>
+										<li>
+											<a title="兰蔻" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=124"><img width="90" alt="兰蔻" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398100899214207_sm.jpg"><span>兰蔻</span></a>
+										</li>
+										<li>
+											<a title="娇兰" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=125"><img width="90" alt="娇兰" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398101035858820_sm.jpg"><span>娇兰</span></a>
+										</li>
+										<li>
+											<a title="妮维雅" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=127"><img width="90" alt="妮维雅" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398101539246004_sm.jpg"><span>妮维雅</span></a>
+										</li>
+										<li>
+											<a title="雅顿" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=130"><img width="90" alt="雅顿" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398102086535787_sm.jpg"><span>雅顿</span></a>
+										</li>
+										<li>
+											<a title="雅诗兰黛" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=133"><img width="90" alt="雅诗兰黛" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398102581821577_sm.jpg"><span>雅诗兰黛</span></a>
+										</li>
+										<li>
+											<a title="资生堂" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=136"><img width="90" alt="资生堂" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398103163925153_sm.jpg"><span>资生堂</span></a>
+										</li>
+										<li>
+											<a title="SK-ll" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=142"><img width="90" alt="SK-ll" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398104206717960_sm.jpg"><span>SK-ll</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="1" class="even">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-1.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1">服饰鞋帽</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="1" style="display: none; top: -173px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=12" title="T恤">T恤</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=13" title="衬衫">衬衫</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=14" title="雪纺/雪纺">雪纺/雪纺</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=18" title="连衣裙">连衣裙</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=19" title="半身裙">半身裙</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=4">女装</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=12">T恤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=13">衬衫</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=14">雪纺/雪纺</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=18">连衣裙</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=19">半身裙</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=20">牛仔裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=21">休闲裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=22">打底裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=23">西装/正装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=25">短外套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=26">风衣/大衣</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=30">羽绒服/棉服</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=31">孕妇装</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=5">男装</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=35">衬衫</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=36">T恤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=43">风衣/大衣</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=49">羽绒服/棉服</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=50">牛仔裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=51">休闲裤</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=6">内衣</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=58">文胸/抹胸</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=59">女式内裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=60">男式内裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=62">睡衣</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=64">睡袍／浴袍</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=66">背心</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=68">连裤袜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=69">美腿袜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=72">情趣内衣</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=7">运动</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=86">运动裤</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=87">套装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=88">运动包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=89">运动配件</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=8">女鞋</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=93">休闲鞋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=97">拖鞋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=104">特色鞋</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=9">男鞋</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=109">休闲鞋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=110">凉鞋／沙滩鞋</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=113">拖鞋</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=10">配饰</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=119">太阳镜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=121">皮带</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=122">围巾</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=123">手套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=124">帽子</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=125">领带</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=128">丝巾</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=129">披肩</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=134">遮阳帽</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=136">草帽</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=11">童装</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=137">套装</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=138">上衣</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=139">裤子</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=140">裙子</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=142">羽绒服／棉服</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=144">儿童配饰</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=150">功能鞋</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+									<ul>
+										<li>
+											<a title="阿迪达斯" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=84"><img width="90" alt="阿迪达斯" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04397471910652190_sm.jpg"><span>阿迪达斯</span></a>
+										</li>
+										<li>
+											<a title="真维斯" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=89"><img width="90" alt="真维斯" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04397472838086984_sm.jpg"><span>真维斯</span></a>
+										</li>
+										<li>
+											<a title="七匹狼" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=94"><img width="90" alt="七匹狼" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398089136939537_sm.jpg"><span>七匹狼</span></a>
+										</li>
+										<li>
+											<a title="佐丹奴" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=96"><img width="90" alt="佐丹奴" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398089412399747_sm.jpg"><span>佐丹奴</span></a>
+										</li>
+										<li>
+											<a title="宝姿" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=100"><img width="90" alt="宝姿" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398090061006740_sm.jpg"><span>宝姿</span></a>
+										</li>
+										<li>
+											<a title="ELLE HOME" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=103"><img width="90" alt="ELLE HOME" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398090611386532_sm.jpg"><span>ELLE HOME</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="2" class="odd">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-2.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=2">礼品箱包</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="2" style="display: none; top: -207px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=156" title="钱包/卡包">钱包/卡包</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=158" title="单肩包">单肩包</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=159" title="双肩包">双肩包</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=160" title="手提包">手提包</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=161" title="斜挎包">斜挎包</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=151">时尚女包</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=156">钱包/卡包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=158">单肩包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=159">双肩包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=160">手提包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=161">斜挎包</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=152">绅士男包</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=162">钱包/卡包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=163">男士手包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=164">腰包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=165">商务公文包</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=153">功能箱包</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=166">电脑数码包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=167">拉杆箱</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=168">旅行包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=170">休闲运动包</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=173">书包</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=154">礼品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=178">工艺礼品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=179">创意礼品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=181">鲜花速递</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=182">婚庆用品</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="530" class="even">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-530.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=530">珠宝手表</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="530" style="display: none; top: -241px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=541" title="项链/项坠">项链/项坠</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=542" title="手链/脚链">手链/脚链</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=543" title="戒指/指环">戒指/指环</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=544" title="耳饰/头饰">耳饰/头饰</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=545" title="手镯">手镯</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=531">时尚饰品</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=541">项链/项坠</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=542">手链/脚链</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=543">戒指/指环</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=544">耳饰/头饰</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=545">手镯</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=546">胸针/领针</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=547">婚庆饰品</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=548">饰品配件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1086">摆件</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1087">首饰盒</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=539">婚庆</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=582">婚纱摄影</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=583">婚纱礼服</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=584">婚庆服务</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=585">婚庆礼品/用品</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=540">钟表手表</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=591">闹钟挂钟</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=592">手表</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1088">怀表</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1089">古董表</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1090">钟表配件</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1091">眼镜</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1094">太阳镜</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1095">功能眼镜</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1092">镜片镜架</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1096">镜架</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1097">镜片</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1093">眼镜配件</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1098">镜盒/镜袋/镜套</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1099">镜布</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1100">隐形眼镜伴侣盒</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1101">隐形眼镜清洁器</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1102">眼镜护理剂</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1103">滴眼液</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+									<ul>
+										<li>
+											<a title="施华洛世奇" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=143"><img width="90" alt="施华洛世奇" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398116735872287_sm.jpg"><span>施华洛世奇</span></a>
+										</li>
+										<li>
+											<a title="CK" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=145"><img width="90" alt="CK" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398116986166995_sm.jpg"><span>CK</span></a>
+										</li>
+										<li>
+											<a title="Disney" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=146"><img width="90" alt="Disney" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398117134560677_sm.jpg"><span>Disney</span></a>
+										</li>
+										<li>
+											<a title="梅花" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=149"><img width="90" alt="梅花" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398117504203345_sm.jpg"><span>梅花</span></a>
+										</li>
+										<li>
+											<a title="卡西欧" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=155"><img width="90" alt="卡西欧" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398118617326698_sm.jpg"><span>卡西欧</span></a>
+										</li>
+										<li>
+											<a title="帝舵" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=157"><img width="90" alt="帝舵" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398118894311290_sm.jpg"><span>帝舵</span></a>
+										</li>
+										<li>
+											<a title="欧米茄" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=164"><img width="90" alt="欧米茄" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398119996858692_sm.jpg"><span>欧米茄</span></a>
+										</li>
+										<li>
+											<a title="tissot" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=165"><img width="90" alt="tissot" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398120141178815_sm.jpg"><span>tissot</span></a>
+										</li>
+										<li>
+											<a title="斯沃琪" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=169"><img width="90" alt="斯沃琪" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398121090096799_sm.jpg"><span>斯沃琪</span></a>
+										</li>
+										<li>
+											<a title="阿玛尼" href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=170"><img width="90" alt="阿玛尼" heiht="30" src="http://www.letaomart.ca/data/upload/shop/brand/04398121209932680_sm.jpg"><span>阿玛尼</span></a>
+										</li>
+									</ul>
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+					<li cat_id="1126" class="odd">
+						<div class="class">
+							<span class="ico"><img src="http://www.letaomart.ca/data/upload/shop/common/category-pic-1126.jpg"></span>
+							<h4><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1126">图书音像</a></h4>
+							<span class="arrow"></span> </div>
+						<div class="sub-class" cat_menu_id="1126" style="display: none; top: -275px;">
+							<div class="sub-class-content">
+								<div class="recommend-class">
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1136" title="历史">历史</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1137" title="心理学">心理学</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1138" title="政治军事">政治军事</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1139" title="国学古籍">国学古籍</a></span>
+									<span><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1140" title="哲学宗教">哲学宗教</a></span>
+								</div>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1128">人文社科</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1136">历史</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1137">心理学</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1138">政治军事</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1139">国学古籍</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1140">哲学宗教</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1141">社会科学</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1142">法律文化</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1129">生活文艺</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1143">家教育儿</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1144">孕产</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1145">健身保健</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1146">旅游/地图</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1147">美食</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1148">时尚美妆</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1149">家居</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1150">两性</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1151">体育</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1152">小说文学</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1153">传记</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1154">动漫/艺术</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1155">摄影</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1130">科技教育</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1156">计算机/网络</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1157">电子/通信</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1158">工业技术</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1159">科普/自然</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1160">建筑</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1161">农林</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1162">中小学教辅</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1163">考试</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1164">外语学习</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1165">字典词典</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1131">经管励志</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1166">管理</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1167">金融与投资</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1168">经济</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1169">励志与成功</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1132">少儿</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1170">0-6岁</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1171">7-14岁</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1172">幼儿启蒙</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1173">儿童文学</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1174">智力开发</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1175">绘本</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1176">手工游戏</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1133">期刊杂志</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1177">杂志/期刊</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1134">电子书</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1178">小说文学</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt>
+            <h3><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1135">音像音乐</a></h3>
+          </dt>
+									<dd class="goods-class">
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1179">影视</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1180">教育音像</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1181">游戏</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1182">动漫周边</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1183">流行音乐</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1184">古典音乐</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1185">爵士蓝调</a>
+										<a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=1186">有声读物</a>
+									</dd>
+								</dl>
+							</div>
+							<div class="sub-class-right">
+								<div class="brands-list">
+								</div>
+								<div class="adv-promotions">
+									<!--Ŀǰû���Ϲ���λ-->
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<ul class="site-menu">
+			<li><a href="index.html" class="current">首页</a></li>
+			<li><a href="groupbuy.html"> 团购<!--抢购--></a></li>
+			<li><a href="http://www.letaomart.ca/shop/index.php?act=pointshop&amp;op=index"> 积分中心</a></li>
+			<li><a href="http://www.letaomart.ca/shop/index.php?act=special&amp;op=special_list"> 促销</a></li>
+			<li><a target="_blank" href="/shop/index.php?act=flea">闲置</a></li>
+		</ul>
+	</div>
+</div>
+		<!--划过显示下级菜单-->
+			<script type="text/javascript">
+				$(".class h4").hover(function(){
+					var hindex=$(this).index();
+					var ti=setInterval(function(){
+						$(".sub-class").eq(hindex).stop().css("display","block");
+						$(".sub-class").hover(function(){
+							$(".sub-class").eq(hindex).stop().css("display","block");
+						},
+						function (){
+							clearInterval(ti);
+							$(".sub-class").eq(hindex).stop().css("display","none");
+						}
+							);
+					},1000);
+					}
+				)
+			</script>
+		
+		
+		<!--banner-->
+
+		<div class="home-focus-layout">
+			<ul id="fullScreenSlides" class="full-screen-slides">
+				<li style="z-index: 900; display:  list-item; background: url(img/web-101-101-1.jpg) 50% 0% no-repeat;">
+					<a href="" target="_blank" title="生鲜食品 Food &amp; Grocery">&nbsp;</a>
+				</li>
+				<li style="display:list-item; z-index: 800; background: url(img/web-101-101-2.jpg) 50% 0% no-repeat;">
+					<a href="" target="_blank" title="美食团购">&nbsp;</a>
+				</li>
+			</ul>
+		
+			<ul class="full-screen-slides-pagination">
+				<li class="current">
+					<a href="javascript:void(0)">1</a>
+				</li>
+				<li class="current">
+					<a href="javascript:void(0)">2</a>					
+				</li>
+			</ul>
+		 
+			
+			<div id="odiv" class="jfocus-trigeminy">
+				 <!--*******************banner下方滚动(*******************************88)-->
+					<ul id="oul" style="left: -777px; width: 2331px;">
+            			<li>
+                			<a href="" target="_blank" title="佳节大献礼-茶满中秋" style="opacity: 1;">
+               				 <img src="img/gundong/web-101-102-1-1.jpg" alt="佳节大献礼-茶满中秋"></a>
+                          	<a href="" target="_blank" title="孩子喜欢-遥控悍马" style="opacity: 1;">
+               				 <img src="img/gundong/web-101-102-1-2.jpg" alt="孩子喜欢-遥控悍马"></a>
+                          	<a href="" target="_blank" title="天气凉了-情侣家居服" style="opacity: 1;">
+                			<img src="img/gundong/web-101-102-1-3.jpg" alt="天气凉了-情侣家居服"></a>
+           				</li>
+          				<li>
+	                           <a href="" target="_blank" title="越中国越时尚-水晶中国风" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-2-1.jpg"></a>
+				                  <a href="" target="_blank" title="领先全球首创-CoolTec冰爽剃须" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-2-2.jpg"></a>
+				                 <a href="" target="_blank" title="健康中的专家-欧姆龙血压计" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-2-3.jpg" alt="健康中的专家-欧姆龙血压计"></a>
+      						</li>
+				            <li>
+				                <a href="" target="_blank" title="TOPTO秋季格调-衬衫促销季" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-3-1.jpg"></a>
+				                 <a href="" target="_blank" title="骆驼早秋新品尝试-热销款推荐" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-3-2.jpg"></a>
+				                 <a href="" target="_blank" title="识得女人香-冰希利娇真我系列" style="opacity: 1;">
+				                <img src="img/gundong/web-101-102-3-3.jpg"></a>
+				            </li>
+        			</ul>
+        			
+        		
+        			<div class="pagination">
+        				<span style="opacity: 1;"></span>
+        				<span style="opacity: 0.4;"></span>
+        				<span style="opacity: 0.4;"></span>
+        			</div>
+        			<!--前进后退键子-->
+        			<div id="ri" class="arrow pre" style="opacity: 0;"></div>
+        			<div id="le" class="arrow next" style="opacity: 0;"></div>
+			</div>
+			<!--************************热卖商品滚动*******************************-->
+			
+			<script type="text/javascript">
+				$("#ri").hover(function(){
+					$(this).css({opacity:0.5})
+					
+				},
+				function (){
+					$(this).css({opacity:0})
+				});
+				$("#le").hover(function(){
+					$(this).css({opacity:0.5})
+					
+				},
+				function (){
+					$(this).css({opacity:0})
+				});
+				
+			</script>
+	<!--右侧滚动和抢购商品***************************-->
+<div class="right-sidebar">
+  		<div class="policy">
+    		  <ul>
+				<li><span class="b1"></span>闪电发货</li>
+       			<li><span class="b2"></span>正品保障</li>
+        		<li><span class="b3"></span>七天包退</li>
+     			</ul>
+    			</div>
+    			<!--最近抢购热门商品-->
+      	<div class="groupbuy" id="Gdiv">
+      			<div class="title"><i>抢</i>近期抢购</div>
+    			<ul style="left: -210px; width: 630px;" id="Goul">
+                <li>
+          			<dl style=" background-image:url(img/1_04423395187054760_small.jpg)">
+           				 <dt>228元任选一箱，国际大赛权威推荐“金奖”葡萄酒！</dt>
+          				 <dd class="price"><span class="groupbuy-price">$228.00</span><span class="buy-button"><a href="http://www.letaomart.ca/shop/index.php?act=show_groupbuy&amp;op=groupbuy_detail&amp;group_id=2">立即抢</a></span></dd>
+           					 <dd class="time"><span class="sell">已售<em>0</em></span> <span class="time-remain" count_down="120561802"> <em time_id="d">1395</em>天<em time_id="h">9</em>小时 <em time_id="m">23</em>分<em time_id="s">22</em>秒 </span></dd>
+        			  </dl>
+        		</li>
+                <li>
+         			 <dl style=" background-image:url(img/1_04423415305032356_small.jpg)">
+            				<dt>东阿阿胶桃花姬阿胶糕300g，芝麻香，核桃脆，上品阿胶，养颜</dt>
+           					 <dd class="price"><span class="groupbuy-price">$95.00</span><span class="buy-button"><a href="http://www.letaomart.ca/shop/index.php?act=show_groupbuy&amp;op=groupbuy_detail&amp;group_id=3">立即抢</a></span></dd>
+           			 		<dd class="time"><span class="sell">已售<em>0</em></span> <span class="time-remain" count_down="120561802"> <em time_id="d">1395</em>天<em time_id="h">9</em>小时 <em time_id="m">23</em>分<em time_id="s">22</em>秒 </span></dd>
+          			</dl>
+       			</li>
+       			 <li>
+          			<dl style=" background-image:url(img/1floor/1_161660a1e2tb1w8ix___0-item_pic_240.jpg)">
+           				 <dt>228元任选一箱，国际大赛权威推荐“金奖”葡萄酒！</dt>
+          				 <dd class="price"><span class="groupbuy-price">$228.00</span><span class="buy-button"><a href="http://www.letaomart.ca/shop/index.php?act=show_groupbuy&amp;op=groupbuy_detail&amp;group_id=2">立即抢</a></span></dd>
+           					 <dd class="time"><span class="sell">已售<em>0</em></span> <span class="time-remain" count_down="120561802"> <em time_id="d">1395</em>天<em time_id="h">9</em>小时 <em time_id="m">23</em>分<em time_id="s">22</em>秒 </span></dd>
+        			  </dl>
+        		</li>
+              </ul>
+              	
+   				 <div class="pagination">
+   				 <span style="opacity: 0.4;"></span>
+   				 <span  style="opacity: 1;"></span>
+   				 </div>
+   				 
+   				 <div  id="xs2" class="arrow pre xs" style="opacity: 0;"></div>
+   				 <div id="xx2" class="arrow next xx" style="opacity: 0;"></div>
+      		</div>
+        <div class="proclamation">
+     			 <ul class="tabs-nav">
+			        <li class="tabs-selected">
+			          <h3>招商入驻</h3>
+			        </li>
+			        <li>
+			          <h3>商城公告</h3>
+			        </li>
+			      </ul>
+			      <div class="tabs-panel"> <a href="http://www.letaomart.ca/shop/index.php?act=show_joinin&amp;op=index" title="申请商家入驻；已提交申请，可查看当前审核状态。" class="store-join-btn" target="_blank">&nbsp;</a> <a href="http://www.letaomart.ca/shop/index.php?act=seller_login&amp;op=show_login" target="_blank" class="store-join-help"><i class="icon-cog"></i>登录商家管理中心</a> </div>
+			      <div class="tabs-panel tabs-hide">
+			        <ul class="mall-news">
+			                              <li><i></i><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=35" title="销售须知">销售须知 </a>
+			          
+			          </li>
+			                    <li><i></i><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=36" title="商户入驻说明">商户入驻说明 </a>
+			            
+			          </li>
+			                    <li><i></i><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=41" title="商品促销说明">商品促销说明 </a>
+			           
+			          </li>
+			                    <li><i></i><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=38" title="提示信息">提示信息 </a>
+			          </li>
+			           </ul>
+      </div>
+    </div>
+ 		 </div>
+ 		 <!--**********************banner右侧商家入驻tab切换********************************8-->
+ 		 <script type="text/javascript">
+ 		 			
+ 		 		$(".proclamation .tabs-nav li").hover(function(){
+ 		 			
+ 		 			var pindex=$(this).index();
+ 		 			$(this).addClass("tabs-selected").siblings().removeClass("tabs-selected");
+ 		 			$(".proclamation div").eq(pindex).removeClass("tabs-hide").siblings("div").addClass("tabs-hide");
+ 		 		}
+ 		 		
+ 		 		)
+ 		 </script>
+ 		 
+
+</div> 
+		
+		
+		
+		<!--热卖商品***************************************************-->
+		<div class="home-sale-layout wrapper">
+			<div class="left-layout">
+				<ul class="tabs-nav">
+                          <li class="tabs-selected"><i class="arrow"></i><h3>热卖商品</h3></li>
+                          <li class=""><i class="arrow"></i><h3>疯狂抢购</h3></li>
+                          <li class=""><i class="arrow"></i><h3>猜您喜欢</h3></li>
+                          <li class=""><i class="arrow"></i><h3>热评商品</h3></li>
+                          <li class=""><i class="arrow"></i><h3>新品上架</h3></li>
+              	 </ul>
+                <div class="tabs-panel sale-goods-list">
+                	<ul>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="#">
+                                          	至尊金奖 法国原瓶进口AOC红酒 任选一箱 红沙城堡红葡萄酒 原装进口</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="#">
+                                          	<img src="img/rmsp/1_04423392298369303_240.jpg">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$228.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="#" title="中华老字号 东阿阿胶桃花姬阿胶糕300g">
+                                          	中华老字号 东阿阿胶桃花姬阿胶糕300g</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="#">
+                                          	<img src="img/rmsp/1_04423411880302392_240.png">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$95.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=53" title="新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 紫色">
+                                          	新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 紫色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=53">
+                                          	<img src="img/rmsp/1_04418207207476705_240.jpg">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$99.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=49" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 黑色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 黑色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=49">
+                                          	<img  src="img/rmsp/1_04418211646104580_240.jpg">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$100.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=48" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 蓝色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 蓝色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=48">
+												<img src="img/rmsp/1_04418211646104580_240.jpg" />                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                        </ul>
+                </div>
+                <div class="tabs-panel sale-goods-list tabs-hide">
+                                    <ul>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=54" title="新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 粉色">
+                                          	新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 粉色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="xiangqing.html">
+                                          	<img src="img/rmsp/1_04418207748921454_240.jpg" alt="新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 粉色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$99.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=52" title="新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 白色">
+                                          	新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 白色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=52">
+												<img src="img/rmsp/1_04418240641767556_240.jpg" />                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$58.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=51" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 灰色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 灰色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=51">
+												<img src="img/rmsp/1_04418242684128103_240.jpg" />                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=50" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 橙色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 橙色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=50">
+												<img src="img/rmsp/1_04418253240878850_240.jpg" />                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=47" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 梅红">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 梅红</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=47">
+                                          	<img src="img/rmsp/1_04418211855225368_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 梅红">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                        </ul>
+                                  </div>
+                                  
+                <div class="tabs-panel sale-goods-list tabs-hide">
+                                    <ul>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=46" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=46">
+                                          	<img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=44" title="2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 橙色">
+                                          	2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 橙色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=44">
+                                          	<img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$179.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=43" title="2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 绿色">
+                                          	2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 绿色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=43">
+                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$179.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=42" title="2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 蓝色">
+                                          	2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 蓝色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=42">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$179.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=41" title="正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 黑色">
+                                          	正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 黑色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=41">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$189.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                        </ul>
+                                  </div>
+                <div class="tabs-panel sale-goods-list tabs-hide">
+
+                                    <ul>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=40" title="正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 梅红">
+                                          	正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 梅红</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=40">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$189.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=39" title="正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 绿色">
+                                          	正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 绿色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=39">
+                                                                                    <img src="img/rmsp/1_04418254088878407_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$189.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=38" title="正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 蓝色">
+                                          	正品 2014春装新款 女 绣花针织衫 开衫外套浮桑初 蓝色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=38">
+                                                                                    <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$158.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=231" title="至尊金奖 法国原瓶进口AOC红酒 任选一箱 红沙城堡红葡萄酒 原装进口">
+                                          	至尊金奖 法国原瓶进口AOC红酒 任选一箱 红沙城堡红葡萄酒 原装进口</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=231">
+                                                                                    <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$228.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=232" title="中华老字号 东阿阿胶桃花姬阿胶糕300g">
+                                          	中华老字号 东阿阿胶桃花姬阿胶糕300g</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=232">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$95.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                        </ul>
+                                  </div>
+                <div class="tabs-panel sale-goods-list tabs-hide">
+                                    <ul>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=46" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=46">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=44" title="2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 橙色">
+                                          	2014春款打底毛衫拼色毛衣 长袖套头针织衫 莺 橙色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=44">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$179.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=50" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 橙色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 橙色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=50">
+                                          	                                          <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=51" title="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 灰色">
+                                          	春装 披肩式 超短款 针织 衫开衫 女装 青鸟 灰色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=51">
+                                                                                    <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$129.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                          <li>
+                                        <dl>
+                                          <dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=52" title="新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 白色">
+                                          	新款 女款 拼接 不规则摆 长袖针织衫开衫 杏雨 白色</a></dt>
+                                          <dd class="goods-thumb">
+                                          	<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=52">
+                                          	      <img src="img/rmsp/1_04418240378724556_240.jpg" alt="春装 披肩式 超短款 针织 衫开衫 女装 青鸟 绿色">
+                                          	</a></dd>
+                                          <dd class="goods-price">商城价：<em>$58.00</em></dd>
+                                        </dl>
+                                      </li>
+                                                                        </ul>
+                                  </div>
+			</div>
+				
+						
+			<div class="right-sidebar"></div>
+				<div class="title">
+					<h3>限时折扣</h3>
+				</div>
+				<div id="Tdiv" class="sale-discount">
+					<ul style="left: 0; width: 630px;" id="toul">
+						<li>
+							<dl>
+								<dt class="goods-name">春装 披肩式 超短款 针织 衫开衫 女装 青鸟 黑色</dt>
+								<dd class="goods-thumb">
+									<a herf="#">
+										<img src="img/1_04418240955916042_240.jpg"/>
+									</a>
+								</dd>
+								<dd class="goods-price">
+									$8888.00
+									<span class="original">$99.00</span>
+								</dd>
+								<dd class="goods-price-discount">
+									<em>0.08折</em>
+								</dd>
+								<dd class="time-remain" count_down="120389945">
+									<i></i>
+									<em time_id="d">1393</em>
+									天
+									<em time_id="h">9</em>
+									小时
+									<em time_id="m">38</em>
+									分
+									<em time_id="s">11</em>
+									秒				
+								</dd>
+								<dd class="goods-buy-btn"></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt class="goods-name">爱啥啥爱啥啥</dt>
+								<dd class="goods-thumb">
+									<a herf="#">
+										<img src="img/1_04418207207476705_240.jpg"/>
+									</a>
+								</dd>
+								<dd class="goods-price">
+									$1000.00
+									<span class="original">$12009.00</span>
+								</dd>
+								<dd class="goods-price-discount">
+									<em>0.8折</em>
+								</dd>
+								<dd class="time-remain" count_down="120389945">
+									<i></i>
+									<em time_id="d">1393</em>
+									天
+									<em time_id="h">9</em>
+									小时
+									<em time_id="m">38</em>
+									分
+									<em time_id="s">11</em>
+									秒				
+								</dd>
+								<dd class="goods-buy-btn"></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt class="goods-name">老好看了</dt>
+								<dd class="goods-thumb">
+									<a herf="#">
+										<img src="img/1_04418253240878850_240.jpg"/>
+									</a>
+								</dd>
+								<dd class="goods-price">
+									$888.00
+									<span class="original">$6666.00</span>
+								</dd>
+								<dd class="goods-price-discount">
+									<em>1.8折</em>
+								</dd>
+								<dd class="time-remain" count_down="120389945">
+									<i></i>
+									<em time_id="d">1393</em>
+									天
+									<em time_id="h">9</em>
+									小时
+									<em time_id="m">38</em>
+									分
+									<em time_id="s">11</em>
+									秒				
+								</dd>
+								<dd class="goods-buy-btn"></dd>
+							</dl>
+						</li>
+					</ul>
+					<div id="xs1" class="arrow pre" style="opacity: 0.5;"></div>
+					<div id="xx1" class="arrow next" style="opacity:0.5;"></div>
+				</div>
+				
+			</div>
+		
+		
+		<!--*****************************热卖商品tab切换效果**********************************8-->			
+			<script type="text/javascript">
+		
+				$(".left-layout .tabs-nav li").mouseover(function(){
+						var index=$(this).index();
+						
+						$(".sale-goods-list").eq(index).removeClass("tabs-hide").siblings(".sale-goods-list").addClass("tabs-hide")
+						$(this).addClass("tabs-selected").siblings().removeClass("tabs-selected");
+						
+					}
+				)
+					
+					
+			</script>
+		<!--楼层商品区*********************************************-->
+		<div class="home-standard-layout wrapper style-green">
+			<div class="left-sidebar">
+				<div class="title">
+					<div class="txt-type">
+						<span>1F</span>
+						<h2 title="食品饮料">食品饮料</h2>
+					</div>
+				</div>
+				<div class="left-ads">
+					<a href="#" title="" target="_blank">
+						<img src="img/1floor/web-8-83.png" alt="">
+					</a>
+				</div>
+				<div class="recommend-classes">
+					<ul>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=596" title="休闲食品" target="_blank">休闲食品</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=597" title="粮油调味" target="_blank">粮油调味</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=599" title="饮料冲调" target="_blank">饮料冲调</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=602" title="健康礼品" target="_blank">健康礼品</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=654" title="水果" target="_blank">水果</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=655" title="蔬菜" target="_blank">蔬菜</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=656" title="海鲜水产" target="_blank">海鲜水产</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=657" title="禽蛋" target="_blank">禽蛋</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=658" title="鲜肉" target="_blank">鲜肉</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=659" title="加工类肉食" target="_blank">加工类肉食</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=660" title="冷冻品" target="_blank">冷冻品</a></li>
+						<li><a href="http://www.letaomart.ca/shop/index.php?act=search&amp;op=index&amp;cate_id=661" title="半成品" target="_blank">半成品</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="middle-layout">
+				<ul class="tabs-nav">
+					<li class=""><i class="arrow"></i>
+						<h3>商品推荐</h3></li>
+					<li class="tabs-selected"><i class="arrow"></i>
+						<h3>商品推荐</h3></li>
+				</ul>
+				<div id="a" class="tabs-panel middle-banner-style01 fade-img tabs-hide">
+					<a href="" title="" class="a1" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-11.jpg" alt=""></a>
+					<a href="" title="" class="a2" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-12.jpg" alt=""></a>
+					<a href="" title="" class="b1" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-14.jpg" alt=""></a>
+					<a href="" title="" class="c1" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-21.jpg" alt=""></a>
+					<a href="" title="" class="c2" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-24.jpg" alt=""></a>
+					<a href="" title="" class="d1" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-31.jpg" alt=""></a>
+					<a href="" title="" class="d2" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-32.jpg" alt=""></a>
+					<a href="" title="" class="d3" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-33.jpg" alt=""></a>
+					<a href="" title="" class="d4" target="_blank" style="opacity: 1;">
+						<img src="img/1floor/web-8-85-1-34.jpg" alt=""></a>
+				</div>
+				<div id="b" class="tabs-panel middle-goods-list">
+					<ul>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100077" title="【周黑鸭旗舰店_锁鲜装】盒装鸭翅190g*2 武汉特产官方食品零食">
+                                          	【周黑鸭旗舰店_锁鲜装】盒装鸭翅190g*2 武汉特产官方食品零食</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100077">
+										<img src="img/1floor/1_160873ad27t1oryox___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$55.60</em>
+									<span class="original">$55.60</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100076" title="包邮港荣奶香蒸蛋糕整箱1kg 蒸蛋糕鸡蛋糕 代餐糕点零食品 新日期">
+                                          	包邮港荣奶香蒸蛋糕整箱1kg 蒸蛋糕鸡蛋糕 代餐糕点零食品 新日期</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100076">
+									<img src="img/1floor/1_1609826e82tb1ca5x___0-item_pic_240.jpg" alt="">
+
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$68.00</em>
+									<span class="original">$68.00</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100075" title="盼盼食品 艾比利 薯片批发散装  批发零食 整箱包邮多口味5斤">
+                                          	盼盼食品 艾比利 薯片批发散装  批发零食 整箱包邮多口味5斤</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100075">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$127.00</em>
+									<span class="original">$127.00</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100074" title="micmak马卡龙 法国进口料零食品糕点正宗法式马卡龙甜点12枚甜品">
+                                          	micmak马卡龙 法国进口料零食品糕点正宗法式马卡龙甜点12枚甜品</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100074">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$189.00</em>
+									<span class="original">$189.00</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100073" title="【拍下49.8】雅客金牌肉松饼整箱2100g 零食品蛋糕点雅克礼盒包邮">
+                                          	【拍下49.8】雅客金牌肉松饼整箱2100g 零食品蛋糕点雅克礼盒包邮</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100073">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$130.00</em>
+									<span class="original">$130.00</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100072" title="1盒包邮湖南特产美熟零食品银城湘味QQ鱼香辣小鱼仔毛毛鱼干40包">
+                                          	1盒包邮湖南特产美熟零食品银城湘味QQ鱼香辣小鱼仔毛毛鱼干40包</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100072">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+								</dd>
+								<dd class="goods-price"><em>$28.50</em>
+									<span class="original">$28.50</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100071" title="浙江名优食品温州特产四皇冠专卖初旭酱鸭肫净含量250克">
+                                          	浙江名优食品温州特产四皇冠专卖初旭酱鸭肫净含量250克</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100071">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$31.00</em>
+									<span class="original">$31.00</span></dd>
+							</dl>
+						</li>
+						<li style="opacity: 0.9;">
+							<dl>
+								<dt class="goods-name"><a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100070" title="舜华临武鸭湖南特产鸭肉类零食小吃休闲熟食品500g多种口味混合装">
+                                          	舜华临武鸭湖南特产鸭肉类零食小吃休闲熟食品500g多种口味混合装</a></dt>
+								<dd class="goods-thumb">
+									<a target="_blank" href="http://www.letaomart.ca/shop/index.php?act=goods&amp;op=index&amp;goods_id=100070">
+										<img src="img/1floor/1_161020d50ftb1ztcx___0-item_pic_240.jpg" alt="">
+									</a>
+								</dd>
+								<dd class="goods-price"><em>$108.00</em>
+									<span class="original">$108.00</span></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--*********************一楼商品推荐区切换和划过效果**************************-->
+			<script type="text/javascript">
+			//大茶叶banner划过
+				var $hgbanner=$("#a a");
+				
+				$hgbanner.mouseover(
+					function(){
+						$(this).css({opacity:1}).siblings().css({opacity:0.5});
+					}
+				
+				);
+				
+				
+				$(".middle-layout .tabs-nav li").mouseover(function(){
+						var index=$(this).index();
+						$(this).addClass("tabs-selected").siblings().removeClass("tabs-selected");
+						var MBS=document.getElementById("a");
+						var MGl=document.getElementById("b");
+							if(index==0){
+								$(MBS).removeClass("tabs-hide");
+								$(MGl).addClass("tabs-hide");
+							}else{
+								$(MBS).addClass("tabs-hide");
+								$(MGl).removeClass("tabs-hide");
+							}
+					
+						
+						
+					}
+				)
+				$("#b ul li").hover(function(){
+					$(this).css({opacity:1}).siblings().css({opacity:0.5});
+				},
+				function(){
+					$("#b ul li").css({opacity:1});
+				})
+			</script>
+			<!--1楼右侧*********************************-->
+			<div class="right-sidebar">
+				<div class="title"></div>
+				<div class="recommend-brand">
+					<ul>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=260" title="新西兰十一坊" target="_blank">
+								<img src="img/1floor/04398157235673753_sm.jpg" alt="新西兰十一坊"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=259" title="Lumi" target="_blank">
+								<img src="img/1floor/04398157235673753_sm.jpg" alt="Lumi"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=258" title="白兰氏" target="_blank">
+								<img src="img/1floor/04398157235673753_sm.jpg" alt="白兰氏"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=257" title="同仁堂" target="_blank">
+								<img src="img/1floor/04398157472174891_sm.jpg"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=256" title="喜瑞" target="_blank">
+								<img src="http://www.letaomart.ca/data/upload/shop/brand/04399856323294870_sm.jpg" alt="喜瑞"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=255" title="康比特" target="_blank">
+								<img src="img/1floor/04398158266047493_sm.jpg"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=254" title="汤臣倍健" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=253" title="乐力" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=251" title="同庆和堂" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=250" title="养生堂" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=249" title="屯河" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+						<li style="opacity: 1;">
+							<a href="http://www.letaomart.ca/shop/index.php?act=brand&amp;op=list&amp;brand=227" title="西门子" target="_blank">
+								<img src="img/1floor/04398158808225051_sm.jpg" alt="汤臣倍健"></a>
+						</li>
+					</ul>
+				</div>
+				<div class="right-side-focus">
+					<ul style="left: 0px; width: 212px;">
+						<li>
+							<a href="" title="" target="_blank">
+								<img src="img/1floor/web-8-88-1.jpg" alt=""></a>
+						</li>
+					</ul>
+					<div class="pagination"><span style="opacity: 1;"></span></div>
+					<div class="arrow pre" style="opacity: 0;"></div>
+					<div class="arrow next" style="opacity: 0;"></div>
+				</div>
+			</div>
+		</div>
+		<!--***************1floor右侧划过****************-->
+		<script type="text/javascript">
+			$(".recommend-brand ul li").hover(
+				function(){
+					$(this).css({opacity:1}).siblings().css({opacity:0.5});
+				},
+				
+				function(){
+					
+					$(".recommend-brand ul li").css({opacity:1});
+				})
+		</script>
+		<!--底部紅色條狀信息-->
+		<div class="wrapper" style="width: 1200px; margin-left:5px;">
+			<div class="mt10" style="margin-left: 10px; margin-top: 10px;">
+				<img style="width:1200px;height:90px" border="0" src="img/05078633540468151.png" />
+			</div>
+		</div>
+		<div class="footer-line" style="width: 100%; height: 4px;">			
+		</div>
+		<!--***********************底部承诺信息***************************************-->
+		<div class="fttff29">
+			<div class="warp-all236">
+				<div class="mod_agree">
+					<ul class="mod_agree_con">
+
+				<li class="mod_agree_item mod_agree_item1">
+					<a><img src="img/dbcn/72edb29cc2ad2af46000.png"></a><strong>一线货源</strong><span>福建，河北，温州</span>
+				</li>
+
+				<li class="mod_agree_item mod_agree_item2">
+					<a><img src="img/dbcn/3497c1b195bde1928550.png"></a> <strong>数据互通</strong><span>网站，商家，消费者</span>
+				</li>
+				<li class="mod_agree_item mod_agree_item3">
+					<a><img src="img/dbcn/aafda0df33d2a95e6010.png"></a> <strong>统一价格</strong><span>拒绝被宰，安心购物</span>
+				</li>
+				<li class="mod_agree_item mod_agree_item4">
+					<a><img src="img/dbcn/c827005fae642e146280.png"></a> <strong>担保交易</strong><span>支付宝担保，交易更安全</span>
+				</li>
+				<li class="mod_agree_item mod_agree_item5">
+					<a><img src="img/dbcn/ea3ff5e9bf84afc34800.png"></a> <strong>无忧退货</strong><span>7+15无理由退换货</span>
+				</li>
+				<li class="mod_agree_item mod_agree_item6">
+					<a><img src="img/dbcn/f0a5ee0bfc20dd005850.png"></a> <strong>惊喜购</strong><span>帮你发现身边的好货</span>
+				</li>
+			</ul>
+		</div>
+			</div>
+		</div>
+		<!--**************************底部帮助信息**********************************-->
+		<div id="faq">
+			<div class="faq-wrapper">
+				<ul>
+					<li>
+						<dl class="s1">
+							<dt>
+				        帮助中心      </dt>
+							<dd><i></i><a href="#" title="积分兑换说明"> 积分兑换说明 </a></dd>
+							<dd><i></i><a href="#" title="查看已购买的商品"> 查看已购买的商品 </a></dd>
+							<dd><i></i><a href="#" title="积分细则"> 积分细则 </a></dd>
+							<dd><i></i><a href="#" title="如何搜索"> 如何搜索 </a></dd>
+							<dd><i></i><a href="#" title="如何扩充水印字体库"> 如何扩充水印字体库 </a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl class="s2">
+							<dt>
+				        店主之家      </dt>
+							<dd><i></i><a href="#" title="申请开店"> 申请开店 </a></dd>
+							<dd><i></i><a href="#" title="查看售出商品"> 查看售出商品 </a></dd>
+							<dd><i></i><a href="#" title="商品推荐促销"> 商品推荐促销 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=11" title="店铺管理"> 店铺管理 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=13" title="发货须知"> 发货须知 </a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl class="s3">
+							<dt>
+				        支付方式      </dt>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=29" title="信用卡"> 信用卡 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=28" title="PayPal"> PayPal </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=30" title="公司转账"> 公司转账 </a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl class="s4">
+							<dt>
+				        售后服务      </dt>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=32" title="退换货流程"> 退换货流程 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=34" title="退款申请"> 退款申请 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=31" title="退换货须知"> 退换货须知 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=26" title="联系卖家"> 联系卖家 </a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl class="s5">
+							<dt>
+				        客服中心      </dt>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=19" title="修改会员个人资料"> 修改会员个人资料 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=21" title="修改收货地址"> 修改收货地址 </a></dd>
+							<dd><i></i><a href="http://www.letaomart.ca/shop/index.php?act=article&amp;op=show&amp;article_id=18" title="会员修改密码"> 会员修改密码 </a></dd>
+						</dl>
+					</li>
+				
+				</ul>
+				<div class="help">
+					<div class="w1190 clearfix">
+						<div class="contact f-l">
+							<div class="contact-border clearfix">
+								<span class="ic tel t20">1-888-779-6999</span>
+								<span class="ic mail">123456789@hotmail.com</span>
+							</div>
+							<div class="attention cleafix">
+								<div class="weixin f-l">
+									<img src="img/04878464478763272.png" />
+									<p class="f-l">
+        								<span>扫一扫</span>
+        								<span>关注我们</span>
+        							</p>
+								</div>
+								<div class="weibo f-l">
+									<div class="ic qq" style="padding-left: 0px;"><ul><li><a target="_blank">腾讯微博</a></li></ul></div>
+									<div class="ic sina" style="padding-left: 0px;"><ul><li><a target="_blank">新浪微博</a></li></ul></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--***************************最底部footer部分******************************-->
+		<div id="footer" class="wrapper">
+  <p><a href="http://www.letaomart.ca/shop">首页</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=22">关于我们</a>
+                | <a target="_blank" href="/shop/index.php?act=article&amp;op=article&amp;ac_id=10">使用条款</a>
+                | <a target="_blank" href="/shop/index.php?act=article&amp;op=article&amp;ac_id=11">隐私条款</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=25">商务合作</a>
+                | <a href="#">友情链接</a>
+                | <a href="http://#">广告服务</a>
+                | <a href="/shop/index.php?act=article&amp;article_id=23">联系我们</a>
+                | <a target="_blank" href="http://www.hwdianping.com/">海外点评</a>
+                      </p>
+  				Copyright 2015 2016<br>
+	</body>
+	<script type="text/javascript" src="js/gundong.js" ></script>
+	<script type="text/javascript" src="js/banner.js" ></script>
+	<script src="js/daojishi.js"></script>
+	<script src="js/toolbar.js"></script>
+		<script type="text/javascript">
+				takeCount();
+			</script>
+
+</html>
